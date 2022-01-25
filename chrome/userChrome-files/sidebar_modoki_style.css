@@ -1,0 +1,150 @@
+
+:root{
+    --sm-tab-width:70px!important;
+}
+
+#SM_toolbox{
+    opacity: 1!important;
+    background-color: var(--toolbar-bgcolor, --toolbar-non-lwt-bgcolor)!important;
+    margin-right: -6px!important;
+    position: absolute!important;
+    z-index: 1!important;
+    margin-top: -1px!important;
+}
+
+#SM_splitter {
+    border-left-color: rgba(0, 0, 0, 0)!important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    margin-top: 0px!important;
+    z-index: 9999!important;
+    position: absolute!important;
+    margin-top: -40px!important;
+
+}
+#main-window[sizemode="maximized"] #SM_splitter {
+       margin-top: var(--top-toolbar-height)!important;
+}
+#main-window[sizemode="normal"] #SM_splitter {
+       opacity:0!important;
+}
+#SM_tabs {
+    border-bottom-width: 0px!important;
+    border-color: var(--arrowpanel-border-color)!important;
+    border-bottom-style: solid!important;
+    border-width:1px!important;
+
+}
+
+#SM_tab0[selected="true"] {
+    border-color: var(--arrowpanel-border-color)!important;
+    border-radius: 3px!important;
+    border-top-left-radius: 6px!important;
+    border-top-right-radius: 6px!important;
+    border-width: 1px!important;
+    border-bottom-color: var(--toolbar-bgcolor)!important;
+    margin-bottom: -1px!important;
+    opacity: 1!important;
+    border-style: solid!important;
+    appearance: unset!important;
+    color: var(--sidebar-text-color)!important;
+
+    
+}
+#SM_tab0 {
+    border: none!important;
+    opacity: 0.4!important;
+    appearance: unset!important;
+    color: var(--lwt-toolbar-field-focus-color)!important;
+    width:var(--sm-tab-width)!important;
+    text-align:center!important;
+}
+#SM_tab1[selected="true"] {
+    border-color: var(--arrowpanel-border-color)!important;
+    border-radius: 3px!important;
+    border-top-left-radius: 6px!important;
+    border-top-right-radius: 6px!important;
+    border-width: 1px!important;
+    border-bottom-color: var(--toolbar-bgcolor)!important;
+    margin-bottom: -1px!important;
+    opacity: 1!important;
+    border-style: solid!important;
+    appearance: unset!important;
+    color: var(--sidebar-text-color)!important;
+}
+#SM_tab1 {
+    border: none!important;
+    opacity: 0.4!important;
+    appearance: unset!important;
+    color: var(--lwt-toolbar-field-focus-color)!important;
+    width:var(--sm-tab-width)!important;
+    text-align:center!important;
+}
+#SM_tab2[selected="true"] {
+    border-color: var(--arrowpanel-border-color)!important;
+    border-radius: 3px!important;
+    border-top-left-radius: 6px!important;
+    border-top-right-radius: 6px!important;
+    border-width: 1px!important;
+    border-bottom-color: var(--toolbar-bgcolor)!important;
+    margin-bottom: -1px!important;
+    opacity: 1!important;
+    border-style: solid!important;
+    appearance: unset!important;
+    color: var(--sidebar-text-color)!important;
+
+}
+#SM_tab2 {
+    border: none!important;
+    opacity: 0.4!important;
+    appearance: unset!important;
+    color: var(--lwt-toolbar-field-focus-color)!important;
+    width:var(--sm-tab-width)!important;
+    text-align:center!important;
+}
+#SM_tab3[selected="true"] {
+    border-color:var(--arrowpanel-border-color)!important;
+    border-top-width: 1px!important;
+    border-radius: 3px!important;
+    border-top-left-radius: 6px!important;
+    border-top-right-radius: 6px!important;
+    border-left-width: 1px!important;
+    border-right-width: 1px!important;
+    border-bottom-width: 1px!important;
+    border-bottom-color: var(--lwt-accent-color)!important;
+    margin-bottom: -1px!important;
+    opacity: 1!important;
+    border-style: solid!important;
+    appearance: unset!important;
+    color: var(--sidebar-text-color)!important;
+}
+#SM_tab3 {
+    border: none!important;
+    opacity: 0.4!important;
+    appearance: unset!important;
+    color: var(--lwt-toolbar-field-focus-color)!important;
+}
+
+/*GRAB theme background image*/
+#SM_tabpanels {
+    background: var(--toolbar-bgimage)!important;
+    background: var(--browser-bg-url)!important;
+    background: var(--lwt-header-image)!important;
+    background: var(--lwt-additional-images)!important;
+    background-color: var(--lwt-sidebar-background-color)!important;
+    background-color: var(--lwt-accent-color)!important;
+    appearance: unset!important;
+    background-size: cover!important;
+    
+}
+
+
+
+#SM_Button:-moz-lwtheme-brighttext {
+    background: transparent!important;
+}
+#S_Button[checked="true"] {
+
+    background: !important;
+    list-style-image: url(./icons/sideopen.svg)!important;
+}
+

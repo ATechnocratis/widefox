@@ -1,0 +1,276 @@
+    :root {
+        --active-tab-text-color: rgb(237, 232, 232)!important;
+        --tab-text-regular: rgb(173, 175, 179, 1)!important;
+        --tab-text-active: rgb(237, 232, 232)!important;
+        --tab-like-surface: transparent!important;
+        --tab-margin-left: 5px!important;
+        --tab-margin-right: 10px!important;
+        --tab-top-margin: 10px!important;
+        --favicon-margin-left: 8px!important;
+    }
+    /* Fix background for right side position sidebar with left side style,
+    using   right side  style background  */
+    #background {
+        /*     background-image: var(--sidebar-background-image)!important; */
+        background-position: right!important;
+        background-size: var(--browser-background-image-size, auto)!important;
+        background-size: cover!important;
+    }
+    .have-pinned-tabs {
+        --visual-gap-offset: 15px!important;
+    }
+    /*Margin hack to be used together with sidebar_header_tweaks.css*/
+    #tabbar-container {
+        margin-top: calc( var(--sideheader-margin))!important;
+    }
+
+
+    /* Tab style */
+    tab-item tab-item-substance {
+        border-radius: var(--tst-border-rad)!important;
+        filter: brightness(0.95) saturate(1) opacity(0.9) contrast(1)!important;
+    }
+    tab-item[aria-selected="false"] tab-item-substance {
+        background-clip: text!important;
+        position: relative!important;
+    }
+    tab-item {
+        backdrop-filter: blur(3px)!important;
+    }
+    tab-item tab-item-substance:after {
+        content: ' '!important;
+        display: block!important;
+        position: absolute!important;
+        left: 0!important;
+        top: 0!important;
+        width: 100%!important;
+        height: 100%!important;
+        opacity: 0.7!important;
+        background-color: inherit!important;
+        background-clip: border-box!important;
+        background-repeat: no-repeat!important;
+        background-position: 50% 0!important;
+        background-size: cover!important;
+    }
+    .label {
+        margin-left: 5px!important;
+        text-align: justify!important;
+        font-size: var(--tst-font-size)!important;
+    }
+    tab-item-substance {
+        background-color: rgba(78, 51, 61, 0.9)!important;
+    }
+    tab-item:not(collapsed) tab-item-substance {
+        height: var(--tst-height)!important;
+        margin-top: var(--tst-roots-gap)!important;
+    }
+    /*About pages tab color*/
+    tab-item[data-current-uri^="about"] tab-item-substance {
+        background-color: rgba(80, 51, 61, 0.9)!important;
+    }
+    /*New  tab page color*/
+    tab-item[data-title="New Tab"] tab-item-substance {
+        background-color: var(--tst-default-color)!important;
+    }
+    tab-item:hover[data-title="New Tab"] .background {
+        background-color: black!important;
+    }
+    tab-item[data-title="New Tab"][aria-selected="true"] tab-item-substance {
+        background-color: rgba(28, 24, 31, 1)!important;
+    }
+
+    tab-item:not(collapsed)[data-level="0"] {
+        margin-top: var(--tab-top-margin) !important;
+        margin-bottom: 0px!important;
+        margin-left: 4px!important;
+    }
+    tab-item:not(collapsed) {
+        margin-top: 1px!important;
+    }
+    tab-item:not(collapsed).background {
+        box-shadow: none!important;
+    }
+    /*Pinned tabs fixes */
+    tab-item.pinned {
+        margin-top: calc( 31px) !important;
+        margin-left: var(--tab-margin-left)!important;
+        margin-right: var(--tab-margin-right)!important;
+    }
+    /*Selected tab background to be used together with treetab_animated_gradient_border.css */
+    tab-item[aria-selected="true"] .background {
+        background: none!important;
+    }
+    @media (prefers-color-scheme: dark) {
+        tab-item[aria-selected="true"] tab-item-substance {
+            z-index: 10!important;
+            box-shadow: 1px px 3px 2px var(--active-tab-color-shadow)!important;
+            filter: brightness(1) saturate(1) opacity(1)!important;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        tab-item[aria-selected="true"] tab-item-substance {
+            z-index: 10!important;
+            filter: invert(1) brightness(1.3) saturate(1) opacity(1)!important;
+        }
+        tab-item[aria-selected="true"] .background {
+            filter: invert(0.4) brightness(1.3) saturate(1.5) opacity(1)!important;
+        }
+        tab-item:not(collapsed) tab-item-substance {
+            filter: invert(0.9)!important;
+        }
+        tab-item:hover {
+            filter: invert(1) brightness(1.2) saturate(1) opacity(1)!important;
+        }
+    }
+    /**/
+
+    /* Hide child counter for collapsed parent */
+    tab-counter {
+        display: none!important;
+    }
+    /**/
+    /* Tab favicon fixes */
+    tab-item:not(collapsed) tab-favicon {
+        margin-left: var(--favicon-margin-left)!important;
+        margin-top: 3px!important;
+        margin-right: 2px!important;
+    }
+    /* Tab favicon fade inactive */
+    @media (prefers-color-scheme: dark) {
+        tab-item:not(collapsed) tab-favicon {
+            filter: contrast(1) brightness(1.3) saturate(0.5)!important;
+        }
+        tab-item[aria-selected="true"] tab-favicon {
+            filter: grayscale(0) brightness(1)!important;
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        tab-item:not(collapsed) tab-favicon {
+            filter: invert(1) brightness(0.7)!important;
+        }
+        tab-item[aria-selected="true"] tab-favicon {
+            filter: invert(1)!important;
+        }
+        :root.simulate-svg-context-fill tab-item .favicon-builtin::before {
+            filter: invert(1)!important;
+        }
+    }
+    /**/
+    /* Twisty styling */
+    /* Show  only on hover */
+    tab-item tab-twisty {
+        margin-right: 0em!important;
+        opacity: 0!important;
+        position: absolute!important;
+        z-index: 10000!important;
+        left: calc( var(--favicon-margin-left) + 3px)!important;
+    }
+    tab-item:hover tab-twisty {
+        margin-right: 0em!important;
+    }
+    tab-twisty:hover {
+        background-color: inherit!important;
+        opacity: 1 !important;
+        filter: brightness(0.8)!important;
+    }
+    tab-item:not(collapsed)[aria-selected="true"] tab-twisty:hover {
+        filter: unset!important;
+    }
+    /*Show on collapsed subtree parent */
+    tab-item:not(collapsed).subtree-collapsed tab-twisty {
+        margin-right: 0em !important;
+        opacity: 1 !important;
+        position: relative!important;
+        left: 0px!important;
+    }
+    tab-item:not(collapsed)[aria-selected="true"] tab-twisty {
+        background-color: inherit!important;
+    }
+    /**/
+    /* Hide close button , display on hover */
+    #tabbar tab-item:not(:hover) tab-closebox {
+        display: none!important;
+    }
+/* Hide close button  on Sound playing tab ,
+they close only with right click menu  option
+or middle click */
+    tab-item:not(collapsed).sound-playing tab-closebox, tab-item:not(collapsed).has-sound-playing-member.subtree-collapsed[data-child-ids] tab-closebox, tab-item:not(collapsed).muted tab-closebox, tab-item:not(collapsed).has-muted-member.subtree-collapsed[data-child-ids] tab-closebox {
+        display: none!important;
+    }
+    /**/
+    /* Display container line as a thin line on top */
+    .contextual-identity-marker {
+        position: absolute!important;
+        width: 130% !important;
+        height: 1px!important;
+        top: -1px !important;
+        scale: 421%!important;
+        opacity: 0.2!important;
+    }
+    /**/
+    /* Hide scrollbar */
+    #tabbar.overflow {
+        scrollbar-width: none!important;
+    }
+    /* Change Default favicon */
+    :root.simulate-svg-context-fill tab-item .favicon-builtin::before, tab-favicon[src="chrome://branding/content/icon32.png"] {
+        background: url(data:image/png!important;base64,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)no-repeat center / 100%!important;
+        mask: none!important;
+        background-size: 18px !important;
+        width: 16px !important;
+        height: 16px!important;
+    }
+    tab-favicon[src="chrome://branding/content/icon32.png"] {}
+    tab-favicon>img[src="chrome://branding/content/icon32.png"] {
+        display: none!important;
+    }
+    /**/
+    /* New tab button */
+    .newtab-button-box {
+        /* display: none!important; */
+        margin-top: 10px!important;
+        opacity: 0.3!important;
+    }
+
+
+    /*Make the sound playing tab blink */
+    @media (prefers-color-scheme: dark) {
+        @keyframes blink-animation {
+            0% {
+                filter: brightness(1) opacity(0.9)!important;
+            }
+            50% {
+                filter: brightness(1) opacity(0.9)!important;
+            }
+            80% {
+                filter: brightness(1.3) opacity(1)!important;
+            }
+            100% {
+                filter: brightness(1) opacity(0.9)!important;
+            }
+        }
+    }
+    @media (prefers-color-scheme: light) {
+        /*Make the sound playing tab blink */
+        @keyframes blink-animation {
+            0% {
+                filter: brightness(0.7) opacity(0.9) invert(0.9)!important;
+            }
+            50% {
+                filter: brightness(0.8) opacity(1) invert(0.9)!important;
+            }
+            100% {
+                filter: brightness(0.7) opacity(0.9) invert(0.9)!important;
+            }
+        }
+    }
+    tab-item:not(collapsed, :hover).sound-playing[aria-selected="false"], tab-item:not(collapsed, :hover).has-sound-playing-member.subtree-collapsed[data-child-ids] {
+        animation: blink-animation 1.5s infinite!important;
+    }
+    /*Makes Sound icon larger*/
+    .sound-button {
+        transform: scale(1.3)!important;
+        fill: rgb(255, 255, 255)!important;
+        filter: brightness(11)!important;
+    }
+}

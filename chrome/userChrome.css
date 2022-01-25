@@ -1,0 +1,71 @@
+
+/*--------------------------------------------
+	Changes to various elements  (optional)
+--------------------------------------------*/
+
+/*--- Restore iconography on main menu ---*/
+@import "./userChrome-files/main_menu_icons_restore.css";
+
+/*--- Status panel styling to fit browser theme ---*/
+@import "./userChrome-files/statuspanel.css";
+
+/*--- Minimal findbar style at the upper left ---*/ 
+@import "./userChrome-files/findbar.css";
+
+/*--- Hides many buttons and icons from navbar 
+and urlbar and also restyles the rest (Optional) 
+recommended to customize to restore anything you want --- */
+@import "./userChrome-files/icons_and_buttons.css";
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
+/*--------------------------------------------
+		Normal mode styling (optional)
+--------------------------------------------*/
+
+@import "./userChrome-files/normal_mode.css";
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
+/*--------------------------------------------
+		Maximized mode styling
+--------------------------------------------*/
+
+/*--- Shared variables ---*/
+@import "./userChrome-files/vars.css";
+
+/*--- Creates the no top line style and min - man -max buttons restyle ---*/
+@import "./userChrome-files/maximized_mode_tweaks.css";
+
+/*--- Urlbar styling and tweaking to fit no top line style ---*/
+@import "./userChrome-files/urlbar.css";
+
+/*--- Rotates bookmark toolbar to the left edge of the browser ---*/  
+@import "./userChrome-files/vertical_bookmarks_toolbar.css";
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
+
+/*--------------------------------------------
+			Sidebars styling
+--------------------------------------------*/
+
+/*--- Restyle sidebar header to look like a TST Tab ---*/
+@import "./userChrome-files/sidebar_header_tweaks.css";
+
+/*--- SidebarModoki changes to fit browser theme ---*/
+@import "./userChrome-files/sidebar_modoki_style.css";
+
+/*--- Sidebar floating style ---*/
+@import "./userChrome-files/sidebar_floating.css";
+
+/*--- About:addons changes to fit the sidebar ---*/
+@import "./userChrome-files/addons_sidebar.css";
+@import "./userChrome-files/shadow-root.as.css";
+
+/*--- The about:pages overall styles imported to work inside Sidebar Modoki ---*/
+@import "./userContent-files/aboutpages/list.css";
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/

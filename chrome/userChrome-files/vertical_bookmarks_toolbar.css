@@ -1,0 +1,84 @@
+/*CREDITS to MrOtherGuy, modified to work on maximized mode only and also adjust zoom control*/
+/*UNDER LICENSE OF ORIGINAL SOURCE*/
+
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/vertical_bookmarks_toolbar.css made available under Mozilla Public License v. 2.0
+See the above repository for full license text. */
+
+
+/* Makes bookmarks toolbar appear vertically at the left side of the window */
+
+  :root:not([inFullscreen]){
+    --uc-vertical-toolbar-width: 35px!important;
+  }
+  :root[customizing]{
+    --uc-vertical-toolbar-width: 105px!important;
+  }
+
+ #main-window[sizemode="maximized"]   #PersonalToolbar {
+    position: fixed!important;
+    display: flex!important;
+    flex-direction: column!important;
+    left: 0!important;
+    width: var(--uc-vertical-toolbar-width, 0)!important;
+    height: 100vh!important;
+    max-height: 100vh !important;
+    padding-bottom: 120px !important;
+    padding-top: 4px!important;
+
+}
+#main-window[sizemode="maximized"] #personal-toolbar-empty{
+    display:none
+}
+#main-window[sizemode="maximized"] #PersonalToolbar #PlacesToolbarItems>.bookmark-item {
+    padding-block: 4px !important;
+}
+#main-window[sizemode="maximized"] body>#browser, body>#browser-bottombox, :root[sizemode="maximized"] #customization-container {
+    margin-left: var(--uc-vertical-toolbar-width, 0)!important;
+}
+
+/*Bookmarks fixes ( Hidden by default)*/
+:root[sizemode="maximized"] #PersonalToolbar #PlacesToolbarItems {
+    display: flex!important;
+    flex-direction: column!important;
+}
+:root[sizemode="maximized"] #personal-bookmarks {
+    overflow-y: auto!important;
+    scrollbar-width: none!important;
+}
+
+/*Hide bookmark items in maximized */
+ #main-window[sizemode="maximized"] #PlacesToolbar {
+    display: none!important;
+}
+
+
+/*Space between items*/
+#PersonalToolbar .toolbarbutton-1 {
+    padding-block: 9px !important;
+    margin-right: 5px!important;
+}
+
+
+/*Vertical zoom controls */
+#main-window[sizemode="maximized"] #zoom-controls {
+    opacity: 0.9;
+    transform: rotate(90deg)!important;
+    margin-bottom: 95px;
+    margin-top: -10px;
+
+}
+  
+:root[customizing][sizemode="maximized"] 
+    #zoom-controls {
+        margin-top: 50px!important;
+        margin-left:-45px!important;
+        margin-bottom: 50px!important;
+}    
+
+
+#main-window[sizemode="maximized"] #zoom-controls[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
+    transform: rotate(180deg)!important;
+    font-size: 15px!important;
+    font-family: serif!important;
+}
+

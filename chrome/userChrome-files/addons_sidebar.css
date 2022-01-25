@@ -1,0 +1,205 @@
+/*About:addons for sidebar stylling*/
+
+@-moz-document url-prefix(chrome://mozapps/content/extensions/extensions.xul),
+url-prefix(about:addons), url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
+url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
+@media (max-width: 630px) {
+    :root {
+        --sidebar-width: calc(var(--in-content-sidebar-width) - 82px) !important;
+        --addon-icon-size: 20px  !important;
+        --in-content-category-background-selected: transparent !important;
+        --card-shadow-hover: 0 0 0 3px rgba(100, 60, 140, 1) !important;
+    }
+    /*sidebar with categories on top*/
+    #sidebar {
+        transform: rotate(-90deg)  !important;
+        transform-origin: 0px 0px !important;
+        margin-top: 45px !important;
+        overflow: visible !important;
+        position: relative !important;
+        width: 50px !important;
+        max-height: 99vw !important;
+        min-height: 1vw !important;
+        padding: 0 !important;
+    }
+    sidebar-footer {
+        display: none !important;
+    }
+    #categories {
+        margin: 0 !important;
+    }
+    #categories > .category {
+        transform: rotate(90deg)  !important;
+        margin-inline-start: 0 !important;
+        margin-inline-end: 0 !important;
+        z-index: 10 !important;
+
+    }
+
+    #page-header {
+        background: none !important;
+    }
+    .spacer {
+        display: none !important;
+    }
+
+/*Only keep page options and search from main heading*/
+
+    .sticky-container {
+        display: flex !important;
+        max-width: 110vw !important;
+        min-width: 0 !important;
+        margin-top: 40px !important;
+        margin-right: 0 !important;
+    }
+    .main-heading {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    #updates-message, .header-name ,.main-heading > .back-button,  .search-label{
+        display: none !important;
+    }
+    .page-options-menu > .more-options-button {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-height: 30px !important;
+        margin-inline-start: 0px !important;
+    }
+    .main-search {
+        display: block !important;
+        padding: 10px !important;
+    }
+    /*recolour background*/
+    .sticky-container {
+        background: var(--in-content-box-background-op)  !important;
+        backdrop-filter: blur(11px) !important;
+    }
+    /*MAX WIDTH FIT TO PAGE*/
+    search-addons > search-textbox {
+        max-width: calc( 94vw - 32px) !important;
+    }
+    /*Search box fit */
+    .main-search search-addons > search-textbox, search-addons,input {
+         max-width: calc( 94vw - 32px ) !important;
+         min-width: 0 !important;
+     }
+     /*Max width of the body elements*/
+     #main, body, #full, .main-search {
+         max-width: 99vw !important;
+         min-width: 0px !important;
+    }
+    #main {
+        margin-left: 14px !important;
+    }
+    #content {
+        margin-left: -45px !important;
+    }
+
+
+    /*Highlight selected category*/
+    button.category {
+        filter: contrast(0.16) brightness(0.7) !important;
+    }
+    button.category[selected] {
+        filter: contrast(1) !important;
+    }
+    :root {
+        --in-content-category-background-selected: rgba(1, 1, 1, 0) !important;
+    }
+    
+    /*Addon card styling and margin fit*/
+    .addon-name {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        line-height: 24px !important;
+        margin-inline-end: auto !important;
+        max-width: 50vw!important;
+    }
+    .card { 
+        -moz-padding-start: 0px  !important;
+        margin: 3px !important;
+        /*only for light mode change bacrkound*/
+        background: rgba(182, 166, 176, 0.3) !important;
+    }
+    /*Hide addon description */
+    .addon-description {
+        display: none !important;
+    }
+    .card-contents {
+        padding-top: 10px !important;
+    }
+    addon-card:not([expanded="true"]) .card-heading-image {
+        display: none  !important;
+    }
+    .addon-name-link, .addon-name-link:hover {
+        color: var(--in-content-text-color) !important;
+        text-decoration: none !important;
+    }
+    /*Addon card margins*/
+    addon-card:not([expanded="true"]) .addon.card {
+        margin-top: 11px  !important;
+        margin-bottom: -2px  !important;
+        padding-top: 3px  !important;
+        padding-bottom: 2px  !important;
+        min-height: 40px  !important;
+    }
+    .card-heading-icon {
+        padding: 10px !important;
+    }
+    /*hide badge*/
+    .addon-badge {
+        display: none !important;
+    }
+    addon-list[type="theme"] .addon.card {
+        min-height: 40px  !important;
+        min-width: 0px  !important;
+    }
+    /*More options button shrink and recolour*/
+    addon-card:not([expanded="true"]) .addon.card .more-options-button {
+        margin-left: 9px !important;
+        width: 17px  !important;
+        height: 17px  !important;
+        background-color: rgba(120, 120, 120, 0.1) !important;
+        order: 1 !important;
+    }
+
+    addon-card:not([expanded="true"]) .card-heading-icon {
+        margin-inline-end: 0px  !important;
+    }
+    /* remove advertising other add-ons */
+    recommended-themes-section, recommended-extensions-section {
+        display: none  !important;
+    }
+    .category[is="discover-button"]{
+        display: none!important;
+    }
+    /*Dark mode colours adjustments*/
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --in-content-page-background: rgba(0, 1, 1, 0) !important;
+        }
+        #sidebar {
+            background-color:rgba(52, 66, 76, 0.3)!important;
+        }
+        .card {
+            background: rgba(52, 66, 76, 0.3) !important;
+        }
+        search-addons > search-textbox {
+            background: var(--accent-color)  !important;
+            font-weight: 550 !important;
+            color: white !important;
+        }
+        .theme-enable-button {
+            background-color: rgb(20, 50, 20) !important;
+        }
+        .theme-enable-button[data-l10n-id="disable-addon-button"] {
+            background-color: rgba(70, 20, 20) !important;
+        }
+        .addon-name-link, .addon-name-link:hover {
+            color: var(--in-content-text-color) !important;
+            text-decoration: none !important;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000 !important;
+        }
+    }
+}
+}

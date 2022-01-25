@@ -1,0 +1,7 @@
+
+#statuspanel #statuspanel-label {
+  background-color: rgba(30,30,30,1) !important;
+  color: rgba(222,222,222,0.5)!important; !important;
+  border-color: rgba(115,115,115,0.5)!important;
+  border-top-right-radius: 10px!important;
+}

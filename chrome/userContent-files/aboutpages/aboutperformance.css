@@ -1,0 +1,25 @@
+/*about:performance recolour and margin fix*/
+@-moz-document url-prefix(about:performance) {
+    @media (prefers-color-scheme: dark) {
+        html, #dispatch-table {
+            background:none!Important;
+        }
+        #dispatch-thead>tr>td {
+            background-color: rgba(0, 1, 1, 0);
+            backdrop-filter: blur(10px);
+        }
+        td {
+            color: rgba(255, 220, 220, 0.7)!important;
+        }
+    }
+    #column-name {
+        padding-right: 60px!important;
+    }
+    #column-type {
+        padding-right: 0px!important;
+    }
+    td {
+        min-width: 10px!Important;
+        width: 20px!Important;
+    }
+}

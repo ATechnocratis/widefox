@@ -1,0 +1,56 @@
+:root{
+	
+	--titlebar-hide:19px!important;
+	--sideheader-margin:37px!important;
+  	--tst-roots-gap:3px!important;
+	--tst-border-rad:6px!important;
+	--tst-height:34px!important;
+	--tst-default-color:rgba(1, 41, 41, 1)!important;
+	--tst-font-size:13px!important;
+	
+
+	--urlbar-foucs-width: 630px!important;
+	--urlbar_font_size: 15px!important;
+}
+
+
+
+:root:not([customizing])[sizemode="normal"]  {
+	--navbar-transition-delay: 0.1s!important;
+	--navbar-transition-duartion: 135ms!important;
+}
+
+:root:not([customizing])[uidensity="compact"] {
+	--top-toolbar-height:-33px!important;
+}
+
+:root:not([customizing]):not([uidensity]) {
+	
+	--top-toolbar-height:-37px!important;
+	
+	
+}
+:root:not([customizing])[uidensity="touch"] {
+	--top-toolbar-height:-38px!important;
+	--titlebar-hide:20px!important;
+
+}
+
+:root:not([customizing])[sizemode="normal"][uidensity="compact"] {
+		
+	--nav-bar-margin: -47px!important;
+	--bookmark-bar-margin: -22px!important;
+	
+}
+
+:root:not([customizing])[sizemode="normal"]:not([uidensity]) {
+	--nav-bar-margin: -41px!important;
+	--bookmark-bar-margin: -28px!important;
+}
+
+:root:not([customizing])[sizemode="normal"][uidensity=touch] {
+	--nav-bar-margin: -41px!important;
+	--bookmark-bar-margin: -34px!important;
+}
+
+#urlbar-container {--urlbar-container-height: 30px !important;}

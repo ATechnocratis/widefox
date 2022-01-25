@@ -1,0 +1,52 @@
+/* Remade for TST from  https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/tabs_animated_gradient_border.css 
+See for the above repository for full license text.*/
+
+/*Animation*/
+
+@keyframes rotate-gradient {
+    from {
+        background-position: 0 0!important;
+    }
+    to {
+        background-position: 100vw 0!important;
+    }
+}
+
+/**/
+
+/*Make tab background a rotating gradient*/
+tab-item[aria-selected="true"] .background::before {
+    content: ""!important;
+    display: block!important;
+    position: absolute!important;
+    width: 100vw!important;
+    height: 100%!important;
+    background-image: linear-gradient(to right, magenta, #740000, #CDAE3A, #154700, cyan, blue, magenta)!important;
+    animation: rotate-gradient 7s steps(75) infinite; 
+    pointer-events: none!important;
+    z-index: -1!important;
+    filter:  brightness(1.5)!important;
+    transform: scale(2)!important;
+}
+
+/*Make sure background stays behind*/
+
+tab-item .background {
+    z-index: -1!important;
+    
+}
+
+/*Add the background colour in the extra-item-container and scale it*/
+
+tab-item[aria-selected="true"] .extra-items-container {
+    z-index: 2!important;
+    background: inherit!important;
+    margin:1px!important;
+    border: 1px solid transparent!important;
+    border-radius: 6px!important;
+    
+}
+/**/
+
+
+

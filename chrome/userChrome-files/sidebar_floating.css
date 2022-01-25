@@ -1,0 +1,256 @@
+@-moz-document url-prefix("chrome://browser/content/places/bookmarksSidebar.xhtml"), url-prefix("chrome://browser/content/downloads/contentAreaDownloadsView.xhtml"), url-prefix("chrome://browser/content/places/historySidebar.xhtml") {
+    
+        :root {
+            --sidebar-left-margin: 7px!important;
+            --sidebar-right-margin: 14px!important;
+            --sidepanel-box-shadow: 2px 2px 7px 1px black!important;
+            --sidepanel_border-radius: 16px!important;
+
+        }
+    
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --sidepanel-background: rgba(60, 60, 60, 0.0)!important;
+            --float-box-background: rgba(100, 100, 100, 0.05)!important;
+            --in-content-box-border-color: rgba(75, 45, 45, 0.3)!important;
+            --box-background: rgba(25, 25, 25, 0.3)!important;
+            --search-box-background: rgba(53, 43, 53, 0.05)!important;
+            --box-selected-background: rgba(55, 55, 55, 0.5)!important;
+
+        }
+    }
+}
+/* remove maximum/minimum width restriction of sidebar */
+
+#sidebar {
+    max-width: none !important;
+    min-width: 0px !important;
+}
+
+#sidebar-splitter{
+    opacity:0.2
+}
+.sidebar-placesTree {
+    -moz-appearance: none!important;
+    color: var(--lwt-sidebar-text-color, --panel-description-color)!important;
+    font-size: 13px!important;
+/*     font-family: arial!important;*/
+     font-family: liberation mono!important;
+
+}
+
+
+/*Bookmarks sidebar*/
+
+/* move bookmarks  to the left border */
+
+.sidebar-placesTreechildren[view="bookmarks-view"] {
+    margin-left: -8px !important;
+
+}
+/* gap between single bookmarks */
+.sidebar-placesTree treechildren::-moz-tree-row {
+    min-height: 21px !important;
+    height: 21px !important;
+    
+}
+
+#bookmarks-view-children:-moz-tree-image {
+    margin-left: 0px !important;
+}
+
+/* left-hand space at opened subfolders */
+
+.sidebar-placesTreechildren::-moz-tree-indentation {
+    width: 7px !important;
+}
+
+/*Make side panels floating*/
+
+@-moz-document url-prefix("chrome://browser/content/places/bookmarksSidebar.xhtml") {
+    #search-box {
+        background: none!important;
+        appearance: unset!important;
+    }
+    #bookmarksPanel {
+        padding: 18px!important;
+        margin-right: calc( -14px + var(--sidebar-right-margin))!important;
+        padding-left: var( --sidebar-left-margin)!important;
+        background-image: var(--sidebar-background-image)!important;
+        background-size: cover!important;
+    }
+    #sidebar-search-container {
+        border-radius: 0!important;
+        border: 1px solid var(--in-content-box-border-color)!important;
+        border-top-left-radius: var(--sidepanel_border-radius)!important;
+        border-top-right-radius: var(--sidepanel_border-radius)!important;
+        z-index: 3!important;
+        position: absolute!important;
+        backdrop-filter: blur(3px)!important;
+    }
+    #bookmarks-view {
+        margin-top: -43px!important;
+        margin-bottom: 3px!important;
+        border: 1px solid var(--in-content-box-border-color)!important;
+        border-radius: var(--sidepanel_border-radius)!important;
+        padding-left: 4px!important;
+        padding-top: 44px!important;
+        padding-bottom: 10px!important;
+        scrollbar-color: rgba(37, 0, 0, .1) rgba(0, 0, 0, 0)!important;
+        box-shadow: 1px 1px 3px 0px grey!important;
+        backdrop-filter: blur(3px)!important;
+        background: var(--toolbar-bgimage)!important;
+    }
+   /*Dark mode recolor*/
+    @media (prefers-color-scheme: dark) {
+        #search-box {
+            background-color: rgba(1, 1, 1, 0) !important;
+            background: none!important;
+            
+        }
+        #bookmarksPanel {
+            background: none!important;
+            background-color: var(--sidepanel-background)!important;
+        }
+        #sidebar-search-container {
+            background: var(--search-box-background)!important;
+            border: 1px solid var(--in-content-box-border-color)!important;
+        }
+        #bookmarks-view {
+            background: var(--float-box-background)!important;
+            border: 1px solid var(--in-content-box-border-color)!important;
+            box-shadow: var(--sidepanel-box-shadow)!important;
+
+        }
+
+        treechildren::-moz-tree-row(selected, current, focus) {
+            border: 1px dotted rgb(100,10,10)!important;
+            outline:none !important;
+            background:none!important;
+
+
+        }
+    }
+}
+/*History sidebar*/
+@-moz-document url-prefix("chrome://browser/content/places/historySidebar.xhtml") {
+    #search-box {
+        appearance: unset!important;
+    }
+    #sidebar-search-container {
+        border-radius: 0!important;
+        border: 1px solid var(--in-content-box-border-color)!important;
+        border-top-left-radius: var(--sidepanel_border-radius)!important;
+        border-top-right-radius: var(--sidepanel_border-radius)!important;
+        opacity: 0.8!important;
+        z-index: 3!important;
+        position: absolute!important;
+        backdrop-filter: blur(1px)!important;
+    }
+    #historyTree {
+        margin-top: -43px!important;
+        margin-bottom: 3px!important;
+        border: 1px solid var(--in-content-box-border-color)!important;
+        border-radius: var(--sidepanel_border-radius)!important;
+        padding-left: 4px!important;
+        padding-top: 43px!important;
+        padding-bottom: 10px!important;
+        scrollbar-color: rgba(77, 77, 77, .1) rgba(0, 0, 0, 0)!important;
+        box-shadow: 2px 2px 7px 1px grey!important;
+        backdrop-filter: blur(4px)!important;
+    }
+    #history-panel {
+        padding: 18px!important;
+        padding-left: var( --sidebar-left-margin)!important;
+        margin-right: calc( -14px + var(--sidebar-right-margin))!important;
+        background-image: var(--sidebar-background-image)!important!important;
+        background-size: cover!important;
+    }
+    treechildren {
+        margin-left: -10px!important;
+        margin-top: 10px!important;
+    }
+    @media (prefers-color-scheme: light) {
+        #search-box {
+            filter: invert(1)!important;
+        }
+    }
+  /*Dark mode recolor*/
+    @media (prefers-color-scheme: dark) {
+        #search-box {
+            background: none!important;
+        }
+        #sidebar-search-container {
+            background: var(--search-box-background)!important;
+            border: 1px solid var(--in-content-box-border-color)!important;
+        }
+        #historyTree {
+            background: var(--float-box-background)!important;
+            border: 1px solid var(--in-content-box-border-color)!important;
+            scrollbar-color: rgba(77, 77, 77, .1) rgba(0, 0, 0, 0)!important;
+            box-shadow: var(--sidepanel-box-shadow)!important;
+        }
+        #history-panel {
+            background: none!important;
+            background-color: var(--sidepanel-background!important;
+        }
+    }
+    #viewButton {
+        border:  none !important;
+        background: transparent!important;
+    }
+}
+
+/*Downloads sidebar*/
+
+@-moz-document url-prefix("chrome://browser/content/downloads/contentAreaDownloadsView.xhtml") {
+    
+    #contentAreaDownloadsView {
+        padding: 18px!important;
+        padding-left: calc( var( --sidebar-left-margin) )!important;
+        margin-right: calc( -14px + var(--sidebar-right-margin))!important;
+    }
+    #downloadsRichListBox {
+        margin-bottom: 3px!important;
+        appearance: none!important;
+        border-radius: var(--sidepanel_border-radius)!important;
+        backdrop-filter: blur(4px)!important;
+        border: 1px solid var(--in-content-box-border-color)!important;
+
+    }
+    
+    richlistitem {
+        order: none!important;
+    }
+    richlistitem[current="true"] {
+        outline: none!important;
+    }
+    /*Dark mode recolour*/
+    @media (prefers-color-scheme: dark) {
+        #contentAreaDownloadsView {
+            background: none!important;
+            background-color: var(--sidepanel-background)!important;
+            background-image: var(--sidebar-background-image)!important;
+            background-size: cover!important;
+            
+        }
+        #downloadsRichListBox {
+            background: var(--float-box-background)!important;
+            box-shadow: var(--sidepanel-box-shadow)!important;
+        }
+        richlistitem {
+            background-color: var(--box-background)!important;
+            color: grey!important;
+        }
+        richlistitem[current="true"] {
+            background-color: var(--box-selected-background)!important;
+            color: white!important;
+            outline: none!important;
+        }
+      .downloadButton:not([disabled="true"]):hover,
+      .downloadButton:not([disabled="true"]):hover:active,
+      .downloadButton:not([disabled]):hover:active {
+            color: inherit!important;
+        }
+    }
+}

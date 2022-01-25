@@ -1,0 +1,15 @@
+
+.textbox-search-clear {
+    filter:invert(1)!important;
+}
+
+@-moz-document url-prefix(chrome://mozapps/content/extensions/extensions.xul),
+url-prefix(about:addons), url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
+url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
+
+@media (max-width: 630px) {
+   .main-search search-addons > search-textbox, search-addons,input {
+        max-width: calc( 94vw - 32px )!important;
+        min-width: 0!important;
+    }    
+}

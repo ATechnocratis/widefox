@@ -1,0 +1,114 @@
+
+/*Hide Tabs */
+#main-window[sizemode="maximized"] .toolbar-items {
+    display: none!important;
+}
+
+/*No bar style margin fixes*/
+
+/* Titlebar margin fix */
+#main-window[sizemode="maximized"] #titlebar {
+    margin-top: calc( (-1) * var(--titlebar-hide))!important;
+}
+
+/*Sidebar margin fix*/
+#main-window[sizemode="maximized"] #sidebar-box {
+    margin-top: var(--top-toolbar-height)!important;
+}
+
+/*Web view move to topmost */
+#main-window[sizemode="maximized"]:not([inFullscreen]) #appcontent {
+    margin-top: var(--top-toolbar-height)!important;
+    z-index: 10000!important;
+    position: relative!important;
+}
+
+/*Notification move to top centre*/
+#main-window[sizemode="maximized"] #tab-notification-deck, #navigator-toolbox>div:nth-child(6) {
+    z-index: 999999!important;
+    position: absolute!important;
+    bottom: 0!important;
+    left: 40%!important;
+    top: 5px!important;
+}
+/*Menu bar move under urlbar */
+#main-window[sizemode="maximized"] #toolbar-menubar:not([inactive]) {
+    margin-top: var(--titlebar-hide)!important;
+    z-index: 2!important;
+}
+#main-window[sizemode="maximized"] #toolbar-menubar {
+    position: fixed!important;
+    display: flex!important;
+    top: 13px!important;
+    max-height: 10px!important;
+    z-index: 10!important;
+}
+
+/*Menu bar styling*/
+#main-window[sizemode="maximized"] #main-menubar {
+    background-color: var(--arrowpanel-background)!important;
+    color: var(--arrowpanel-color)!important;
+}
+
+/*Titlebar buttons (min-max-close)*/
+
+/*Hide second titlebar buttons from menumbar*/
+#toolbar-menubar .titlebar-buttonbox-container {
+    display: none!important;
+}
+/*Move to upper left */
+#main-window[sizemode="maximized"] #TabsToolbar .titlebar-buttonbox-container {
+    margin-left: calc( 100vw - 115px)!important;
+    display: block!important;
+    margin-top: calc( 33px - 20px +  var(--titlebar-hide) )!important;
+    position: absolute!important;
+    z-index: 3!important;
+}
+/*Animation on hover of close button (Optional)*/
+@keyframes closeBanim {
+    0% {
+        transform: rotate(0deg)!important;
+    }
+    75% {
+        transform: rotate(0deg)!important;
+    }
+    100% {
+        transform: rotate(360deg)!important;
+    }
+}
+/*Styling Min max close buttons*/
+#main-window[sizemode="maximized"] .titlebar-min {
+    mask: url(./icons/arrowDown.svg) no-repeat!important;
+}
+#main-window[sizemode="maximized"] .titlebar-restore, #main-window[sizemode="maximized"] .titlebar-max {
+    mask: url(./icons/arrowUp.svg) no-repeat!important;
+}
+#main-window[sizemode="maximized"] .titlebar-close:hover {
+    animation: closeBanim 7s reverse infinite!important;
+    animation-timing-function: linear!important;
+}
+#main-window[sizemode="maximized"] .titlebar-close {
+    margin-left: 18px!important;
+    list-style-image: none!important;
+    background-color: var(--toolbarbutton-icon-fill)!important;
+    filter: grayscale(0.3)!important;
+    mask: url(./icons/cclose.svg) no-repeat!important;
+    margin-block: 0!important;
+    mask-size: 100% 100%!important;
+    padding: 0!important;
+    max-height: 18px!important;
+    min-width: 18px!important;
+}
+#main-window[sizemode="maximized"] .titlebar-restore, #main-window[sizemode="maximized"] .titlebar-max, #main-window[sizemode="maximized"] .titlebar-min {
+    margin-left: 20px!important;
+    list-style-image: none!important;
+    background-color: var(--toolbarbutton-icon-fill)!important;
+    filter: grayscale(0.3)!important;
+    mask-size: 100% 100%!important;
+    min-width: 14px!important;
+    min-height: 14px!important;
+    max-width: 14px!important;
+}
+#main-window[sizemode="maximized"] .titlebar-close>image:nth-child(1) {
+    display: none!important;
+}

@@ -1,0 +1,91 @@
+/*Urlbar width and text fixes for maximized noline mode*/
+
+#main-window[sizemode="maximized"] #urlbar-container {
+    min-width: 0!important;
+    margin-left:0px!important;
+    margin-right:0px!important;
+}
+
+
+/*Text align focused-unfocused*/
+:root[sizemode="maximized"] #urlbar:not([focused="true"]) #urlbar-input {
+    text-align: center!important;
+}
+#main-window[sizemode="maximized"] #urlbar[open] #urlbar-input {
+    text-align: left!important;
+}
+
+#urlbar-input {
+    font-size: var(--urlbar_font_size)!important;
+    text-overflow: ellipsis!important;
+
+}
+
+#main-window[sizemode="maximized"] #urlbar[focused] {
+    min-width: var( --urlbar-foucs-width)!important;
+    position: absolute!important;
+    z-index: 99999!important;
+    max-height: unset!important;
+
+}
+
+/*Stay top most*/
+#nav-bar:not([urlbar-exceeds-toolbar-bounds]), toolbar[overflowable][customizing]>.customization-target {
+    overflow: visible!important;
+}
+:root[sizemode="maximized"]  #nav-bar-customization-target:focus-within {
+    z-index: 99999!important;
+}
+
+/*Hide spacers*/
+:root[sizemode="maximized"] toolbarspring {
+    display: none!important;
+}
+
+/* Move Hamburger menu to left */
+:root[sizemode="maximized"] #PanelUI-button, #customization-panel-container, #customization-panelWrapper .panel-arrow {
+    -moz-box-ordinal-group: 0 !important;
+    margin-right: -6px !important;
+}
+:root[sizemode="maximized"] #PanelUI-menu-button {
+    margin-top: 3px!important;
+}
+:root[sizemode="maximized"] #nav-bar-overflow-button {
+    margin-right: 0px!important;
+    margin-top: 3px!important;
+}
+
+/*Move tracking protection to the right*/
+
+#tracking-protection-icon-container {
+    -moz-box-ordinal-group: 2!important;
+}
+
+/* Contextual toolbar buttons, only show on hover
+ */
+:root:not([customizing])[sizemode="maximized"] #PanelUI-button,
+ :root:not([customizing])[sizemode="maximized"] #nav-bar-overflow-button,
+  :root:not([customizing])[sizemode="maximized"] #nav-bar-customization-target toolbarbutton {
+    margin-left: -31px !important;
+    opacity: 0 !important;
+    transform: scale(.85, .85) !important;
+    transition: all 300ms!important;
+}
+:root:not([customizing])[sizemode="maximized"] :hover>#PanelUI-button,
+ :root:not([customizing])[sizemode="maximized"] :hover>#nav-bar-overflow-button,
+  :root:not([customizing])[sizemode="maximized"] :hover>#nav-bar-customization-target toolbarbutton,
+   :root:not([customizing])[sizemode="maximized"] #nav-bar-customization-target:focus-within #nav-bar toolbarbutton,
+    :root:not([customizing])[sizemode="maximized"] :hover>.titlebar toolbarbutton {
+    transform: scale(1, 1) !important;
+    opacity: 1 !important;
+    margin-left: 0 !important;
+    pointer-events: auto !important;
+    transition: all 300ms !important;
+}
+#main-window[sizemode="maximized"]  #nav-bar:focus-within>#PanelUI-button {
+    transform: scale(1, 1) !important;
+    opacity: 1 !important;
+    margin-left: 0 !important;
+    pointer-events: auto !important;
+    transition: all 300ms !important;
+}

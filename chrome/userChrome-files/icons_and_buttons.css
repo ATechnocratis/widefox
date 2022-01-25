@@ -1,0 +1,105 @@
+
+/* Hides some of the icons of the toolabar and most inside the urlbar */
+/*Delete any rule if you want the icon to be displayed */
+
+#identity-icon-labels {
+    display: none!important;
+}
+
+#back-button {
+    display: none!important;
+}
+#forward-button {
+    display: none!important;
+}
+#tracking-protection-icon-container {
+    margin-left: 5px!important;
+}
+/* Hide Extension Name in the identity area */
+#identity-icon-label {
+    display: none!important;
+}
+#reader-mode-button {
+    display: none!important;
+}
+#userContext-icons {
+    display: none!important;
+}
+#identity-permission-box {
+    display: none!important;
+}
+
+#page-action-buttons {
+    display: none!important;
+}
+
+
+#pageActionSeparator {
+    display: none!important;
+}
+
+/*Restyle identity icon*/
+#identity-icon {
+    opacity: 1!important;
+    fill: #db068d!important;
+}
+
+#identity-icon {
+    list-style-image: none!important;
+    mask: url(./icons/identiy_icon_alt.png) no-repeat!important;
+    background-color: var(--toolbarbutton-icon-fill)!important;
+    mask-size: 100% 100%!important;
+}
+#identity-icon-box {
+    background: none!important;
+    padding-inline: 0px!important;
+    margin-left: 4px!important;
+}
+#identity-box {
+    border-image-slice: 0!important;
+}
+
+/*Color changes */
+#tracking-protection-icon-container {
+    width: unset!important;
+    opacity: 0.8!important;
+    fill: var(--toolbarbutton-icon-fill)!important;
+}
+#connection-icon {
+    opacity: 0.2!important;
+    fill: var(--toolbarbutton-icon-fill)!important;
+}
+#urlbar :hover>#ttracking-protection-icon-container {
+    opacity: 0.8!important;
+    transition: opacity 900ms !important;
+}
+#urlbar :hover>#connection-icon {
+    opacity: 0.6!important;
+    transition: opacity 900ms !important;
+}
+.autoplay-media-icon {
+    opacity: 0.3!important;
+        fill: var(--toolbarbutton-icon-fill)!important;
+}
+.desktop-notification-icon {
+    opacity: 0.3!important;
+       fill: var(--toolbarbutton-icon-fill)!important;
+}
+#extension-icon {
+    opacity: 0.2!important;
+        fill: var(--toolbarbutton-icon-fill)!important;
+}
+#page-action-buttons {
+    opacity: 0.2!important;
+    fill: #db068d!important;
+}
+
+/*Vertical bookmark toolbar Buttons recolor */
+#PersonalToolbar toolbarbutton{
+    filter:opacity(0.7) grayscale(0.2)!important;
+    transition: filter 600ms!important;
+}
+
+#PersonalToolbar toolbarbutton:hover{
+       filter:opacity(1)!important;
+}

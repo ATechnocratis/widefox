@@ -1,0 +1,66 @@
+/*Hide close button*/
+#main-window[sizemode="maximized"] #sidebar-close {
+    transform: scale(1)!important;
+    margin-right: 1px!important;
+    opacity: 0!important;
+    width: 87px!important;
+    pointer-events: none!important;
+}
+/*Restyle header like a TST tab*/
+#main-window[sizemode="maximized"] #sidebar-header {
+    background: none !important;
+    /*background-color: var(--tst-default-color)!important; */
+    background-color: rgba(60,60,60,0.3)!important;
+    backdrop-filter: blur(4px)!important;
+    border: 4px rgba(1, 1, 1, 0) solid!important;
+    position: absolute!important;
+    margin: 5px!important;
+    margin-bottom: var(--tst-roots-gap)!important;
+    border-radius: var(--tst-border-rad)!important;
+    z-index: 1!important;
+    padding: 0px!important;
+    max-height: var(--tst-height)!important;
+    min-height: var(--tst-height)!important;
+}
+
+#main-window[sizemode="maximized"] #sidebar-switcher-target {
+    position: absolute!important;
+    z-index: 21!important!important;
+}
+#sidebar-switcher-target {
+    margin-left: 4px!important;
+}
+#main-window[sizemode="maximized"] #sidebar-switcher-arrow {
+    margin-left: 1px!important;
+    display: none!important;
+}
+#main-window[sizemode="maximized"] #sidebar-title {
+    font-size: var(--tst-font-size)!important;
+}
+
+
+/*MAGRIN HACK for TST to be used together with treestyletab.css*/
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]  #sidebar {
+    margin-top: calc( (-1) *( var(--tst-height)  + 8px  ) )!important;
+}
+#sidebar-splitter{
+    margin-top:var(--top-toolbar-height)!important;
+}
+
+/*TST header name change*/
+
+#main-window[sizemode="maximized"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
+#sidebar-title {
+    display: none!important; /*Remove this line if you want full title*/
+    font-size: var(--tst-font-size)!important;
+    margin-left: -2px!important;
+}
+/*Remove if you want full title*/
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] 
+#sidebar-switcher-target::after {
+    margin-left: 8px!important;
+    appearance: dialog!important;
+    content: "Tabs"!important;
+    display: block!important;
+    font-size: var(--tst-font-size)!important;
+}

@@ -1,0 +1,57 @@
+/********************************************/
+
+
+/*About:pages styling */
+@import "./userContent-files/aboutpages/list.css";
+
+/*  Shared variables */
+@import "./userChrome-files/vars.css";
+
+
+/*--- Tree Style Tab tweaks and styling ---*/
+@import "./userContent-files/treestyletab.css";
+
+/*Adds to Tree Style Tab selected tab an animated gradient border*/
+
+@import "./userContent-files/treetab_animated_gradient_border.css";
+
+
+/*Text Selection / highlight colour*/
+
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        color: rgba(0, 0, 0, 1)!important;
+        background: rgba(160, 30, 40, 1)!important;
+        font-weight: 400!important;
+    }
+}
+@media (prefers-color-scheme: light) {
+    ::selection {
+        color: white!important;
+        background: rgba(100, 100, 100, 1)!important;
+        font-weight: 400!important;
+    }
+}
+
+
+/*Scroll bar colour for scrollbars escaping FloatingScrollbar.uc.js*/
+
+* {
+    scrollbar-color: rgba(77, 77, 77, .4) rgba(0, 0, 0, 0);
+}
+
+
+/*White flash fix */
+
+@media (prefers-color-scheme: dark) {
+    .browserContainer {
+        background-color: rgb(23, 23, 23) !important;
+    }
+    #tabbrowser-tabpanels {
+        background-color: rgb(23, 23, 23) !important;
+    }
+    html.no-js {
+        background-color: rgb(23, 23, 23) !important;
+    }
+}
+/********************************************/

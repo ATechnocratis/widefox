@@ -1,0 +1,240 @@
+/*Recolors about: pages in dark mode*/
+
+@media (prefers-color-scheme: dark) {
+    @-moz-document url-prefix("about:"), url-prefix("chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml"),url-prefix(view-source)  {
+        :root {
+            --primary-background: rgb(20, 16, 19) !important;
+            --bg-color: rgb(20,16,19) !important;
+            --secondary-background: #191516 !important;
+            --primary-font-color: #BCBCBC !important;
+            --highlighted-font-color: #FCFCFC !important;
+            --primary-border: 1px solid #441D37 !important;
+            --bright-border: 1px solid #512828 !important;
+            --border-color: #441D37 !important;
+            --bright-border-color: #512828 !important;
+            --primary-icon-color: #9DA5B4 !important;
+            --faded-bright-border-color: rgba(142, 175, 182, .65) !important;
+            --in-content-border-focus: var(--bright-border-color) !important;
+            --primary-accent-color: #568AF2 !important;
+            --in-content-page-background: #110E10;
+            --in-content-page-color: #BCBCBC !important;
+            --in-content-box-background-alt: #1F2626 !important;
+            --in-content-box-info-background: #191E1E !important;
+            --in-content-button-background: rgb(71, 31, 52) !important;
+            --in-content-button-background-alt: #3a2c2c !important;
+            --in-content-box-border-color: #492D2D !important;
+            --in-content-box-background: #221d21 !important;
+            --in-content-box-background-op: rgba(40, 40, 40, 0.5) !important;
+            --in-content-primary-button-background: rgba(50, 100, 100) !important;
+            --in-content-primary-button-background-hover: rgba(100, 100, 200) !important;
+            --in-content-primary-button-background-active: #3a2c2c !important;
+            --in-content-text-color: #BCBCBC !important;
+            --in-content-focus-outline-color: #492D2D !important;
+            --search-box: #191E1E !important;
+            --checkbox-checked-color: rgb(223, 173, 253) !important;
+            --in-content-item-selected: rgba(90, 70, 70, 1) !important;
+            --in-content-primary-button-text-color: var(--highlighted-font-color) !important;
+            --in-content-category-text-hover: HighlightText  !important;
+            --in-content-category-background-hover: Highlight  !important;
+            --in-content-category-text-selected: black  !important;
+            --in-content-category-text-selected: white  !important;
+            --in-content-category-background-selected: rgba(53, 53, 53, 1);
+        }
+        @media (min-width: 830px) {
+            :root {
+            --in-content-page-background: #110E10!important;
+            }
+        } 
+    }
+@-moz-document url-prefix("about:preferences") {
+    h1 {
+        font-size: 1.5em!important;
+        font-weight: 900 !important;
+    }
+    .main-content {
+        background-color: var(--primary-background) !important;
+        color: var(--primary-font-color) !important;
+    }
+    .sticky-container {
+        background-color: var(--primary-background) !important;
+    }
+    #categories>.category[selected], #categories>.category.selected {
+        color: var( --highlighted-font-color) !important;
+    }
+    html, h1, #categories {
+        color: var(--primary-font-color) !important;
+    }
+    .navigation, #handersView, #engineShown, #engineName, #engineKeyword, .dialogTitleBar {
+        background-color: var(--secondary-background) !important;
+        color: var(--primary-font-color) !important;
+    }
+    #searchInput {
+        background-color: var(--search-box) !important;
+        color: var(--primary-icon-color) !important;
+    }
+    #filter {
+        background-color: var(--search-box) !important;
+        color: var(--primary-icon-color) !important;
+    }
+    #downloadFolder {
+        background-color: var(--search-box) !important;
+        color: var(--primary-icon-color) !important;
+    }
+    #typeColumn {
+        background-color: var(--search-box) !important;
+        color: var(--primary-icon-color) !important;
+    }
+    #actionColumn {
+        background-color: var(--search-box) !important;
+        color: var(--primary-icon-color) !important;
+    }
+    #handlersView {
+        background-color: var(--secondary-background) !important;
+        color: var(--primary-font-color) !important;
+    }
+    #applicationsGroup listheader {
+        background-color: var(--search-box) !important;
+    }
+    #contentBlockingOptionStandard, #contentBlockingOptionStrict, #contentBlockingOptionCustom {
+        background-color: var(--secondary-background) !important;
+        color: var(--primary-font-color) !important;
+        border: 0px  !important;
+    }
+    description {
+        color: var(--primary-font-color) !important;
+    }
+    #engineChildren {
+        background-color: var(--secondary-background) !important;
+        color: var(--primary-font-color) !important;
+    }
+    .content-blocking-warning {
+        background: var( --in-content-box-background-alt) !important;
+    }
+    .checkbox-check, input[type="checkbox"] {
+        border: 1px dashed var(--in-content-accent-color)  !important;
+        background-color: transparent  !important;
+        -moz-appearance: none  !important;
+        opacity: 0.7 !important;
+    }
+    .checkbox-check[checked] {
+        opacity: 1 !important;
+    }
+    input[type="checkbox"] {
+        border: 1px dashed var(--in-content-accent-color)  !important;
+        background-color: transparent  !important;
+        -moz-appearance: none  !important;
+    }
+    .radio-check {
+        background-color: transparent  !important;
+    }
+}
+
+@-moz-document url-prefix("about:addons") {
+    #sidebar {
+        background-color: var(--secondary-background);
+    }
+    #full {
+        color: var(--primary-font-color) !important;
+    }
+    .card {
+        color: var(--primary-font-color) !important;
+    }
+}
+
+/*about:debugging  darker*/
+@-moz-document url-prefix(about:debugging) {
+    :root {
+        --bg-color: rgb(20, 16, 19) !important;
+        --box-background: var( --in-content-box-background) !important;
+        --box-border-color: #512828 !important;
+        --text-color: var(--primary-font-color) !important;
+        --caption-20-color: #BCBCBC !important;
+        --sidebar-selected-color: #BCBCBC !important;
+        --card-separator-color: rgba(142, 175, 182, .65) !important;
+    }
+    .sidebar-item__link, .sidebar-item__link:hover {
+        color: white !important;
+        filter: sepia(0.1) !important;
+    }
+    .connect-section__header__icon, .connect-section__header__icon, .sidebar__footer__icon, .icon-label__icon {
+        filter: invert(1) !important;
+    }
+    .default-button {
+        color: var( --highlighted-font-color) !important;
+        background-color: var(--in-content-button-background-alt) !important;
+    }
+    .sidebar__label, .fieldpair__description {
+        color: var( --primary-font-color) !important;
+    }
+    .sidebar-item:not(.sidebar-item--selectable) {
+        color: var( --primary-font-color) !important;
+    }
+    .sidebar {
+        background-color: var(--secondary-background) !important;
+    }
+    .card {
+        background: var( --in-content-box-background) !important;
+    }
+    .fieldpair {
+        border-color: var(--bright-border-color) !important;
+    }
+}
+
+@-moz-document url-prefix(view-source)  {
+  *|*:root {
+    background-color: var(--primary-background)  !important;
+    color: white  !important;
+  }
+ pre[id]:before,
+  span[id]:before {
+    color: var(---primary-font-color)  !important;
+  }
+
+  .highlight .start-tag {
+    color: #b78cfd  !important;
+  }
+
+  .highlight .end-tag {
+    color: #b78cfd  !important;
+  }
+
+  .highlight .comment {
+    color: #86de74  !important;
+  }
+
+  .highlight .cdata {
+    color: #CC0066  !important;
+  }
+
+  .highlight .doctype {
+    color: steelblue  !important;
+  }
+
+  .highlight .pi {
+    color: #ff7de9  !important;
+  }
+
+  .highlight .entity {
+    color: #dea174  !important;
+  }
+
+  .highlight .attribute-name {
+    color: #86de74  !important;
+  }
+
+  .highlight .attribute-value {
+    color: #75bfff  !important;
+  }
+
+  .highlight .markupdeclaration {
+    color: steelblue  !important;
+    font-style: italic !important;
+  }
+
+  .highlight .error,
+  .highlight .error > :-moz-any(.start-tag, .end-tag, .comment, .cdata, .doctype,
+                                  .pi, .entity, .attribute-name, .attribute-value) {
+    color: #de7474  !important;
+  }
+}
+}
