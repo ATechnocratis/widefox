@@ -1,3 +1,19 @@
+
+/*utilize wasted screen space*/
+
+@-moz-document url-prefix(chrome://mozapps/content/extensions/extensions.xul),
+	url-prefix(about:addons),
+	url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
+	url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
+		
+	@media (min-width: 830px) {	
+	    #main{
+     		max-width: calc( var(--section-width) + 20vw )!important;   
+
+    	    }
+	}
+}
+
 /* SOURCE: https://github.com/aris-t2/customcssforfx ************************************/
 /****************************************************************************************/
 
@@ -6,7 +22,8 @@
 	url-prefix(about:addons),
 	url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
 	url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
-
+		
+	
 
 	.category[is="discover-button"]{
 	    display: none!important;
