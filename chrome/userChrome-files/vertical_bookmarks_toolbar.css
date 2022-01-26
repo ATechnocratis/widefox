@@ -63,7 +63,7 @@ See the above repository for full license text. */
 #main-window[sizemode="maximized"] #zoom-controls {
     opacity: 0.9;
     transform: rotate(90deg)!important;
-    margin-bottom: 95px;
+    margin-bottom: 110px;
     margin-top: -10px;
 
 }
@@ -81,4 +81,3 @@ See the above repository for full license text. */
     font-size: 15px!important;
     font-family: serif!important;
 }
-
