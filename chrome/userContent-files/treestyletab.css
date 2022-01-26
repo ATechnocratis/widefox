@@ -56,6 +56,12 @@
         margin-left: 5px!important;
         text-align: justify!important;
         font-size: var(--tst-font-size)!important;
+        /*Cause right click menu to not work*/
+        pointer-events:none!important;
+    }
+    .front{
+        left:0!important;
+        background:none!important;
     }
     tab-item-substance {
         background-color: rgba(78, 51, 61, 0.9)!important;
