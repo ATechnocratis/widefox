@@ -9,9 +9,6 @@
 /*--- Status panel styling to fit browser theme ---*/
 @import "./userChrome-files/statuspanel.css";
 
-/*--- Minimal findbar style at the upper left ---*/ 
-@import "./userChrome-files/findbar.css";
-
 /*--- Hides many buttons and icons from navbar 
 and urlbar and also restyles the rest (Optional) 
 recommended to customize to restore anything you want --- */
