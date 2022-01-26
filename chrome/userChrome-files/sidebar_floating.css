@@ -32,9 +32,9 @@
 }
 .sidebar-placesTree {
     -moz-appearance: none!important;
-    color: var(--lwt-sidebar-text-color, --panel-description-color)!important;
+    color: var(--panel-description-color,--lwt-sidebar-text-color)!important;
     font-size: 13px!important;
-/*     font-family: arial!important;*/
+/*    font-family: arial!important;*/
      font-family: liberation mono!important;
 
 }
@@ -71,6 +71,8 @@
     #search-box {
         background: none!important;
         appearance: unset!important;
+        color: var(--panel-description-color,--lwt-sidebar-text-color)!important;
+
     }
     #bookmarksPanel {
         padding: 18px!important;
@@ -127,8 +129,6 @@
             border: 1px dotted rgb(100,10,10)!important;
             outline:none !important;
             background:none!important;
-
-
         }
     }
 }
