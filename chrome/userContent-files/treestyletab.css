@@ -63,9 +63,7 @@
         left:0!important;
         background:none!important;
     }
-    tab-item-substance {
-        background-color: rgba(78, 51, 61, 0.9)!important;
-    }
+
     tab-item:not(collapsed) tab-item-substance {
         height: var(--tst-height)!important;
         margin-top: var(--tst-roots-gap)!important;
