@@ -1,11 +1,3 @@
-/*Hide close button*/
-#main-window[sizemode="maximized"] #sidebar-close {
-    transform: scale(1)!important;
-    margin-right: 1px!important;
-    opacity: 0!important;
-    width: 87px!important;
-    pointer-events: none!important;
-}
 /*Restyle header like a TST tab*/
 #main-window[sizemode="maximized"] #sidebar-header {
     background: none !important;
@@ -25,7 +17,7 @@
 
 #main-window[sizemode="maximized"] #sidebar-switcher-target {
     position: absolute!important;
-    z-index: 21!important!important;
+    z-index: 21!important;
 }
 #sidebar-switcher-target {
     margin-left: 4px!important;
