@@ -55,4 +55,5 @@
     content: "Tabs"!important;
     display: block!important;
     font-size: var(--tst-font-size)!important;
+    color: var(--lwt-tab-text)!important;
 }
