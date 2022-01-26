@@ -63,7 +63,6 @@
         left:0!important;
         background:none!important;
     }
-
     tab-item:not(collapsed) tab-item-substance {
         height: var(--tst-height)!important;
         margin-top: var(--tst-roots-gap)!important;
@@ -89,7 +88,7 @@
         margin-left: 4px!important;
     }
     tab-item:not(collapsed) {
-        margin-top: 1px!important;
+        margin-top: 1px;
     }
     tab-item:not(collapsed).background {
         box-shadow: none!important;
