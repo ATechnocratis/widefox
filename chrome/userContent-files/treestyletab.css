@@ -177,7 +177,6 @@
     tab-twisty:hover {
         background-color: inherit!important;
         opacity: 1 !important;
-        filter: brightness(0.8)!important;
     }
     tab-item:not(collapsed)[aria-selected="true"] tab-twisty:hover {
         filter: unset!important;
