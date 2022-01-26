@@ -75,13 +75,13 @@
 /*Animation on hover of close button (Optional)*/
 @keyframes closeBanim {
     0% {
-        transform: rotate(0deg)!important;
+        transform: rotate(0deg);
     }
     75% {
-        transform: rotate(0deg)!important;
+        transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg)!important;
+        transform: rotate(360deg);
     }
 }
 /*Styling Min max close buttons*/
