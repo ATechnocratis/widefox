@@ -192,7 +192,7 @@
         }
         #history-panel {
             background: none!important;
-            background-color: var(--sidepanel-background!important;
+            background-color: var(--sidepanel-background)!important;
         }
     }
     #viewButton {
