@@ -50,6 +50,14 @@
     color: var(--arrowpanel-color)!important;
 }
 
+/*Hide sidebar header close button*/
+#main-window[sizemode="maximized"] #sidebar-close {
+    transform: scale(1)!important;
+    margin-right: 1px!important;
+    opacity: 0!important;
+    width: 87px!important;
+    pointer-events: none!important;
+}
 /*Titlebar buttons (min-max-close)*/
 
 /*Hide second titlebar buttons from menumbar*/
