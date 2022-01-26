@@ -214,18 +214,6 @@ or middle click */
     #tabbar.overflow {
         scrollbar-width: none!important;
     }
-    /* Change Default favicon */
-    :root.simulate-svg-context-fill tab-item .favicon-builtin::before, tab-favicon[src="chrome://branding/content/icon32.png"] {
-        background: url(data:image/png!important;base64,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)no-repeat center / 100%!important;
-        mask: none!important;
-        background-size: 18px !important;
-        width: 16px !important;
-        height: 16px!important;
-    }
-    tab-favicon[src="chrome://branding/content/icon32.png"] {}
-    tab-favicon>img[src="chrome://branding/content/icon32.png"] {
-        display: none!important;
-    }
     /**/
     /* New tab button */
     .newtab-button-box {
