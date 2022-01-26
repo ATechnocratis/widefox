@@ -1,7 +1,7 @@
 @-moz-document url-prefix("chrome://browser/content/places/bookmarksSidebar.xhtml"), url-prefix("chrome://browser/content/downloads/contentAreaDownloadsView.xhtml"), url-prefix("chrome://browser/content/places/historySidebar.xhtml") {
     
         :root {
-            --sidebar-left-margin: 7px!important;
+            --sidebar-left-margin: 14px!important;
             --sidebar-right-margin: 14px!important;
             --sidepanel-box-shadow: 2px 2px 7px 1px black!important;
             --sidepanel_border-radius: 16px!important;
@@ -89,12 +89,12 @@
         backdrop-filter: blur(3px)!important;
     }
     #bookmarks-view {
-        margin-top: -43px!important;
+        margin-top: var(--sidebar-padding)!important;
         margin-bottom: 3px!important;
         border: 1px solid var(--in-content-box-border-color)!important;
         border-radius: var(--sidepanel_border-radius)!important;
         padding-left: 4px!important;
-        padding-top: 44px!important;
+        padding-top: 50px!important;
         padding-bottom: 10px!important;
         scrollbar-color: rgba(37, 0, 0, .1) rgba(0, 0, 0, 0)!important;
         box-shadow: 1px 1px 3px 0px grey!important;
@@ -148,7 +148,7 @@
         backdrop-filter: blur(1px)!important;
     }
     #historyTree {
-        margin-top: -43px!important;
+        margin-top: var(--sidebar-padding)!important;
         margin-bottom: 3px!important;
         border: 1px solid var(--in-content-box-border-color)!important;
         border-radius: var(--sidepanel_border-radius)!important;
