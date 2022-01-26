@@ -13,11 +13,11 @@
 :root[sizemode="normal"] #nav-bar {
     z-index: 1!important;
 }
-.titlebar-buttonbox-container {
+:root[sizemode="normal"] .titlebar-buttonbox-container {
     z-index: 2!important;
     position: absolute!important;
 }
-#nav-bar-overflow-button {
+:root[sizemode="normal"] #nav-bar-overflow-button {
     margin-right: 200px!important;
 }
 :root[sizemode="normal"] #urlbar-container {
