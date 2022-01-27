@@ -82,12 +82,12 @@
         background-color: rgba(28, 24, 31, 1)!important;
     }
 
-    tab-item:not(collapsed)[data-level="0"] {
+    tab-item:not(collapsed,.pinned)[data-level="0"] {
         margin-top: var(--tab-top-margin) !important;
         margin-bottom: 0px!important;
         margin-left: 4px!important;
     }
-    tab-item:not(collapsed) {
+    tab-item:not(collapsed,.pinned) {
         margin-top: 1px;
     }
     tab-item:not(collapsed).background {
