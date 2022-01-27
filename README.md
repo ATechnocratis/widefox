@@ -183,11 +183,11 @@ Tested with the loader from xiaoxiaoflood. Follow the instructions to install th
 #### 6. Customize  Toolbar
  
 
-<p align=center> <details> <summary> Right click on any toolbar and select `Customize  Toolbar...`  or from `Main menu >  More Tools > Customize toolbar...`
+<p align=center> <details> <summary> Right click on any toolbar and select <b>Customize  Toolbar...</b>  or from Main menu >  More Tools > Customize toolbar...
 	<br>&emsp; Click here for more details...</summary>
 
 Make sure there is one spacer on the left side of urlbar and none on the right. Move the sidebar Modoki hide/show button to the vertical toolbar, move the reload and restart buttons where you want.
-Move extensions and other buttons from  either side of urlbar to the vertical toolbar or to overflow menu. Make sure there is at least one thing inside the overflow menu. If you want the zoom control buttons you can bring them to the vertical toolbar. Compact mode is recommended, enable `browser.compactmode.show` in about:config and set density to compact.
+Move extensions and other buttons from  either side of urlbar to the vertical toolbar or to overflow menu. Make sure there is at least one thing inside the overflow menu. If you want the zoom control buttons you can bring them to the vertical toolbar. Compact mode is recommended, enable <b>browser.compactmode.show</b> in <b>about:config</b> and set density to compact.
 
  Here is a before and after from a default profile:
  
