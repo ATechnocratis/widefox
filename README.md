@@ -158,8 +158,9 @@ File: `floatingScrollbar.uc.js`
 
 #### 1. Install [Tree Style Tab](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
  
-+ Select left side style from Options-> Appearance
- 
++ Select left side style from TST Options-> Appearance
++ Click the sidebar header and select `Move Sidebar to Right`
+
 #### 2. Install [TST Colored Tabs](https://addons.mozilla.org/en-US/firefox/addon/tst-colored-tabs/) to get per domain colours
  
 + In options select `Saturation 60` and `Lightness 22` and then add your preferred colours for each domain or leave it to random if you want.
