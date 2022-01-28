@@ -93,13 +93,14 @@
     tab-item:not(collapsed).background {
         box-shadow: none!important;
     }
-    /*Pinned tabs fixes */
+
+/*Pinned tabs fixes */
     tab-item.pinned {
         margin-top: calc( 31px) !important;
         margin-left: var(--tab-margin-left)!important;
         margin-right: var(--tab-margin-right)!important;
     }
-    /*Selected tab background to be used together with treetab_animated_gradient_border.css */
+/*Selected tab background to be used together with treetab_animated_gradient_border.css */
     tab-item[aria-selected="true"] .background {
         background: none!important;
     }
@@ -127,17 +128,21 @@
     }
     /**/
 
-    /* Hide child counter for collapsed parent */
+/* Hide child counter for collapsed parent */
     tab-counter {
         display: none!important;
     }
-    /**/
-    /* Tab favicon fixes */
-    tab-item:not(collapsed) tab-favicon {
+
+/**/
+
+/* Tab favicon fixes */
+
+    tab-item:not(collapsed,.faviconized) tab-favicon {
         margin-left: var(--favicon-margin-left)!important;
         margin-top: 3px!important;
         margin-right: 2px!important;
     }
+
     /* Tab favicon fade inactive */
     @media (prefers-color-scheme: dark) {
         tab-item:not(collapsed) tab-favicon {
@@ -158,8 +163,9 @@
             filter: invert(1)!important;
         }
     }
-    /**/
-    /* Twisty styling */
+/**/
+
+/* Twisty styling */
     /* Show  only on hover */
     tab-item tab-twisty {
         margin-right: 0em!important;
@@ -188,19 +194,23 @@
     tab-item:not(collapsed)[aria-selected="true"] tab-twisty {
         background-color: inherit!important;
     }
-    /**/
-    /* Hide close button , display on hover */
+
+/**/
+
+/* Hide close button , display on hover */
     #tabbar tab-item:not(:hover) tab-closebox {
         display: none!important;
     }
+
 /* Hide close button  on Sound playing tab ,
 they close only with right click menu  option
 or middle click */
     tab-item:not(collapsed).sound-playing tab-closebox, tab-item:not(collapsed).has-sound-playing-member.subtree-collapsed[data-child-ids] tab-closebox, tab-item:not(collapsed).muted tab-closebox, tab-item:not(collapsed).has-muted-member.subtree-collapsed[data-child-ids] tab-closebox {
         display: none!important;
     }
-    /**/
-    /* Display container line as a thin line on top */
+/**/
+
+/* Display container line as a thin line on top */
     .contextual-identity-marker {
         position: absolute!important;
         width: 130% !important;
@@ -209,13 +219,15 @@ or middle click */
         scale: 421%!important;
         opacity: 0.2!important;
     }
-    /**/
-    /* Hide scrollbar */
+/**/
+
+/* Hide scrollbar */
     #tabbar.overflow {
         scrollbar-width: none!important;
     }
-    /**/
-    /* New tab button */
+/**/
+
+/* New tab button */
     .newtab-button-box {
         /* display: none!important; */
         margin-top: 10px!important;
