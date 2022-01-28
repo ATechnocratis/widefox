@@ -5,10 +5,10 @@ See for the above repository for full license text.*/
 
 @keyframes rotate-gradient {
     from {
-        background-position: 0 0!important;
+        background-position: 0 0;
     }
     to {
-        background-position: 100vw 0!important;
+        background-position: 100vw 0;
     }
 }
 
