@@ -99,6 +99,7 @@
         margin-top: calc( 31px) !important;
         margin-left: var(--tab-margin-left)!important;
         margin-right: var(--tab-margin-right)!important;
+        min-width:30px!important;
     }
 /*Selected tab background to be used together with treetab_animated_gradient_border.css */
     tab-item[aria-selected="true"] .background {
