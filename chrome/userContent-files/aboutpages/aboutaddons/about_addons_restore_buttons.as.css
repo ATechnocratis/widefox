@@ -1,10 +1,12 @@
-/* Source https://github.com/aris-t2/customcssforfx ************************************/
+/* Modified from https://github.com/aris-t2/customcssforfx ************************************/
 
 @-moz-document url-prefix(chrome://mozapps/content/extensions/extensions.xul),
 url-prefix(about:addons), url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
 url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
 /*Applies when width > 830 in order to skip styling addon page on sidebar*/
 @media (min-width: 830px) {
+    
+
     html {
         --addon-page-options-width: 340px;
     }
@@ -18,49 +20,41 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     html[lang*="es-"] {
         --addon-page-options-width: 460px;
     }
-    /**/
-    addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button), .more-options-menu panel-item {
-        background: white !important;
-        color: black !important;
-        margin: 0 1px !important;
-        border: 1px solid lightgrey !important;
-    }
-    addon-list addon-card panel-list * {
-        background: white !important;
-    }
-    addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button):hover, addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button):active {
-        border: 1px solid black !important;
-    }
-    addon-list addon-card panel-list *, addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button), .more-options-menu panel-item {
-        background: var(--in-content-button-background)!important;
-    }
-    @media (prefers-color-scheme: dark) {
-        addon-list addon-card panel-list *, addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button), .more-options-menu panel-item {
-            color: white !important;
-        }
-    }
     :-moz-any(addon-list, panel-list) panel-item {
         margin: 0 3px !important;
     }
-    /* reduce size of default buttons */
-    link:-moz-any([href$="panel-item.css"], [href$="panel-list.css"]) ~ button {
-        width: unset !important;
-        padding: 6px 6px !important;
-    }
+    :is(addon-list,panel-list) panel-item{
+	  margin: 0 3px !important;
+	}
+	/* reduce size of default buttons */
+	link:is([href$="panel-item.css"],[href$="panel-list.css"]) ~ button {
+	  width: unset !important;
+	  padding: 6px 6px !important; 
+	}
+	
     /* remove three dots button */
     addon-card .more-options-button {
         display: none !important;
     }
-    /* remove button icon */
-    :host([checked]), panel-item[checked], :-moz-any(addon-list, panel-list) panel-item {
-        --icon: unset !important;
-    }
+
+	/* remove button icon */
+	:host([checked]),
+	panel-item[checked],
+	:is(addon-list,panel-list) panel-item {
+	  --icon: unset !important;
+	}
     /* restore buttons */
     div.arrow.top + div.list {
         display: flex !important;
         flex-flow: row wrap !important;
         justify-content: flex-start !important;
     }
+    div[role="presentation"].list {
+	  display: flex !important;
+	  flex-flow: row wrap !important;
+	  justify-content: flex-start !important;
+	}
+
     panel-item[action="preferences"] {
         order: -3;
     }
@@ -70,30 +64,34 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     panel-item[badged] {
         border: 1px solid Highlight !important;
     }
-    panel-item[badged]::after, :host([badged]) button::after, link:-moz-any([href$="panel-item.css"], [href$="panel-list.css"]) ~ button::after, :-moz-any(addon-options, plugin-options) button::after {
-        display: none !important;
-        content: unset !important;
-    }
+    panel-item[badged]::after,
+	:host([badged]) button::after,
+	link:is([href$="panel-item.css"],[href$="panel-list.css"]) ~ button::after,
+	:is(addon-options,plugin-options) button::after {
+	  display: none !important;
+	  content: unset !important;
+	}
+	
     addon-page-options panel-list {
         min-width: unset !important;
         width: auto !important;
         max-width: var(--addon-page-options-width) !important;
         z-index: 1000 !important;
     }
-    addon-page-options panel-list panel-item {
-        min-width: calc(var(--addon-page-options-width) - 20px) !important;
-        width: 320px !important;
-    }
+	addon-page-options panel-list panel-item {
+	  min-width: calc(var(--addon-page-options-width) - 20px) !important;
+	  width: 320px !important;
+	}
     .sticky-container {
         z-index: 1000 !important;
     }
-    link:-moz-any([href$="panel-item.css"], [href$="panel-list.css"]) ~ button label[accesskey] {
-        padding-inline-start: 20px !important;
-        padding-top: 3px !important;
-        padding-bottom: 3px !important;
-        min-width: calc(var(--addon-page-options-width) - 10px) !important;
-        width: calc(var(--addon-page-options-width) - 10px) !important;
-    }
+	link:is([href$="panel-item.css"],[href$="panel-list.css"]) ~ button label[accesskey] {
+	  padding-inline-start: 20px !important;
+	  padding-top: 3px !important;
+	  padding-bottom: 3px !important;
+	  min-width: calc(var(--addon-page-options-width) - 10px) !important;
+	  width: calc(var(--addon-page-options-width) - 10px) !important;
+	}
     addon-page-options panel-list panel-item[accesskey][checked] {
         background: url("chrome://global/skin/icons/check.svg") 5px no-repeat !important;
     }
@@ -112,22 +110,20 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     addon-card panel-list {
         margin-top: -56px !important;
     }
+    
     .addon-description {
-        min-height: 20px;
+        min-height: 22px!important;
     }
-    /*     addon-card[expanded="true"] panel-list {
+    
+   addon-card[expanded="true"] .extension-enable-button {
+         margin-top: 35px !important;
+    }
+   addon-card[expanded="true"] panel-list {
         margin-top: -35px !important;
-    } */
-    addon-list[type="theme"] addon-card panel-list {
-        margin-top: -52px!important;
-        right: 70px !important;
-    }
+    } 
+
     addon-card[expanded="true"] .addon.card .theme-enable-button {
-        margin-top: -28px !important;
-        z-index: 1000000 !important;
-        position: absolute !important;
-        border-top: 1px solid !important;
-        right: 20px !important;
+        margin-top: -10px !important;
     }
     input[type="checkbox"].toggle-button:checked {
         background: var(--in-content-button-background)!important;
@@ -135,6 +131,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     input[type="checkbox"].toggle-button:hover {
         filter: brightness(2.00) !important;
     }
+    
     .extension-enable-button::before {
         margin-top: 6px!important;
         background: none!important;
@@ -167,6 +164,15 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         border-radius: 0px!important;
         margin-top: 5px!important;
         border: 1px solid rgba(130, 30, 130, 1)!important;
+        
+    }
+
+    .theme-enable-button{
+        margin-top:10px!important;
+        border-radius: 0px!important;
+        border: 1px solid rgba(130, 30, 130, 1)!important;
+                height: 28px !important;
+
     }
     addon-card .addon.card .theme-enable-button:hover {
         cursor: pointer !important;
@@ -198,9 +204,9 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         -moz-margin-end: 10px !important;
     }
     .card-heading-image{
-        margin-top:0px!important;
-    }
-    /**/
+		overflow: hidden !important;
+		margin-top:0px!important;
+	} 
     #main > div:-moz-any([current-view="list"], [current-view="updates"]) .addon.card {
         position: relative;
         display: flex;
@@ -263,5 +269,5 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     recommended-themes-section, recommended-extensions-section {
         display: none !important;
     }
-}
+ }
 }
