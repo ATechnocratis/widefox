@@ -210,7 +210,7 @@
         padding-left: calc( var( --sidebar-left-margin) )!important;
         margin-right: calc( -14px + var(--sidebar-right-margin))!important;
     }
-    #downloadsRichListBox {
+    #downloadsListBox {
         margin-bottom: 3px!important;
         appearance: none!important;
         border-radius: var(--sidepanel_border-radius)!important;
@@ -234,7 +234,7 @@
             background-size: cover!important;
             
         }
-        #downloadsRichListBox {
+        #downloadsListBox {
             background: var(--float-box-background)!important;
             box-shadow: var(--sidepanel-box-shadow)!important;
         }
