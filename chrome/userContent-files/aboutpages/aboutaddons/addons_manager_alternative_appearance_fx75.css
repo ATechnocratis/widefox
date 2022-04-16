@@ -5,7 +5,12 @@
 	url-prefix(about:addons),
 	url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
 	url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
-		
+	
+
+	.category[is="discover-button"]{
+	    display: none!important;
+	}	
+	
 	@media (min-width: 830px) {	
 	    #main{
      		max-width: calc( var(--section-width) + 20vw )!important;   
@@ -25,9 +30,6 @@
 		
 	
 
-	.category[is="discover-button"]{
-	    display: none!important;
-	}	
 	
 		#categories .category:hover {
 	  color: var(--in-content-category-text-hover) !important;
