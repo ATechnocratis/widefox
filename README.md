@@ -92,8 +92,7 @@ File: `.\userContent-files\aboutpages\about_pages_Darker.css`
 Utilize the wasted screen space, bring back buttons and other useful additions!
 
 Files at `.\userContent-files\aboutpages\aboutaddons` folder keep what you prefer.
-
-![image](https://user-images.githubusercontent.com/85787109/151278725-82bb9b3a-c0e6-4318-9aa9-0debba551469.png)
+![image](https://user-images.githubusercontent.com/85787109/163676402-38b77b7e-2c57-41a3-999c-9f49153b370e.png)
 <br></br>
 
 </details>
