@@ -1,4 +1,4 @@
-/* Modified from https://github.com/aris-t2/customcssforfx ************************************/
+/* Source https://github.com/aris-t2/customcssforfx ************************************/
 
 @-moz-document url-prefix(chrome://mozapps/content/extensions/extensions.xul),
 url-prefix(about:addons), url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
@@ -6,7 +6,10 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
 /*Applies when width > 830 in order to skip styling addon page on sidebar*/
 @media (min-width: 830px) {
     
+    #main{
+     max-width: calc( var(--section-width) + 20vw )!important;   
 
+    }
     html {
         --addon-page-options-width: 340px;
     }
@@ -19,6 +22,40 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     }
     html[lang*="es-"] {
         --addon-page-options-width: 460px;
+    }
+    /**/
+    addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button), .more-options-menu panel-item {
+        background: white !important;
+        color: black !important;
+        margin: 0 1px !important;
+        border: 1px solid lightgrey !important;
+    }
+    addon-list addon-card panel-list * {
+        background: white !important;
+    }
+    addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button):hover, addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button):active {
+        border: 1px solid black !important;
+    }
+    @media (prefers-color-scheme: dark) {
+		addon-list addon-card panel-list *,
+		addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button),
+		.more-options-menu panel-item {
+		  background: black !important;
+		  color: white !important;
+	    }
+		addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button):hover,
+		addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button):active {
+		  border: 1px solid white !important;
+		}
+	}
+	
+    addon-list addon-card panel-list *, addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button), .more-options-menu panel-item {
+        background: var(--in-content-button-background)!important;
+    }
+    @media (prefers-color-scheme: dark) {
+        addon-list addon-card panel-list *, addon-list[type="theme"] addon-card button[data-l10n-id="enable-addon-button"]:not(.theme-enable-button), .more-options-menu panel-item {
+            color: white !important;
+        }
     }
     :-moz-any(addon-list, panel-list) panel-item {
         margin: 0 3px !important;
@@ -138,9 +175,30 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         appearance: dialog;
         display: block;
         font-size: 12px!important;
-        color: white;
         position: absolute!important;
         width: 50px!important;
+        color:black;
+    }
+    
+    addon-card:hover .addon.card[active="true"] .theme-enable-button {
+            background: rgb(250,50,50);
+    }
+    addon-card:hover .addon.card[active="false"] .theme-enable-button {
+            background: rgb(50,250,50);
+    }
+    @media (prefers-color-scheme: dark) {
+        .extension-enable-button::before {
+            color: white;
+        }
+        addon-card .addon.card[active="true"] .theme-enable-button {
+            filter: brightness(1.20) !important;
+        }
+        addon-card:hover .addon.card[active="true"] .theme-enable-button {
+            background: rgb(150,50,50) !important;
+        }
+        addon-card:hover .addon.card[active="false"] .theme-enable-button {
+            background: rgb(50,150,50) !important;
+        }
     }
     .card[active="true"] .extension-enable-button::before {
         margin-left: -1px!important;
@@ -171,22 +229,13 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         margin-top:10px!important;
         border-radius: 0px!important;
         border: 1px solid rgba(130, 30, 130, 1)!important;
-                height: 28px !important;
+        height: 28px !important;
 
     }
     addon-card .addon.card .theme-enable-button:hover {
         cursor: pointer !important;
         opacity: 1.0 !important;
-        filter: brightness(2.00) !important;
-    }
-    addon-card .addon.card[active="true"] .theme-enable-button {
-        background: Highlight !important;
-    }
-    addon-card:hover .addon.card[active="true"] .theme-enable-button {
-        background: red !important;
-    }
-    addon-card:hover .addon.card[active="false"] .theme-enable-button {
-        background: green !important;
+        filter: brightness(1.40) !important;
     }
     addon-card .card-contents .addon-description {
         display: block !important;
@@ -269,5 +318,10 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     recommended-themes-section, recommended-extensions-section {
         display: none !important;
     }
- }
+
+}
+/*remove warning*/
+    .container{
+        display:none!important;
+    }
 }
