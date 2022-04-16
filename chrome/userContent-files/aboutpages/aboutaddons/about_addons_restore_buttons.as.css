@@ -322,16 +322,16 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     }
 /*Top header remove waisted space*/
     .sticky-container {
-        display: flex!Important;
+        display: flex!important;
     }
    .main-heading {
-        padding-bottom: 10px!Important;
-        max-width: none!Important;
+        padding-bottom: 10px!important;
+        max-width: none!important;
     }
     .main-search {
-        padding-top: 0!Important;
-        padding-bottom: 10px!Important;
-        max-width: none!Important;   
+        padding-top: 0!important;
+        padding-bottom: 10px!important;
+        max-width: none!important;   
     }
 /*remove warning*/
     .container{
