@@ -4,6 +4,8 @@
 url-prefix(about:addons), url-prefix(chrome://mozapps/content/extensions/aboutaddons.html),
 url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
 /*Applies when width > 830 in order to skip styling addon page on sidebar*/
+    
+    
 @media (min-width: 830px) {
     
     #main{
@@ -318,8 +320,19 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     recommended-themes-section, recommended-extensions-section {
         display: none !important;
     }
-
-}
+/*Top header remove waisted space*/
+    .sticky-container {
+        display: flex!Important;
+    }
+   .main-heading {
+        padding-bottom: 10px!Important;
+        max-width: none!Important;
+    }
+    .main-search {
+        padding-top: 0!Important;
+        padding-bottom: 10px!Important;
+        max-width: none!Important;   
+    }
 /*remove warning*/
     .container{
         display:none!important;
