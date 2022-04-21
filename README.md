@@ -36,7 +36,7 @@ There are two groups of three tabs for a total of six tabs. To switch between gr
 
 <p>
 
-Navbar and sidebar width tied together leavig all the vertical space available for each webpage, urlbar will also expand on when needed.
+Navbar and sidebar width tied together leaving all the vertical space available for each webpage, urlbar will also expand on when needed.
 </p>
 </details>
 <details>
@@ -137,7 +137,7 @@ File: `restoreRestorePreviousSeason.uc.js`
 <summary> Show only domain on urlbar</summary>
 <br></br>
 
-Hide and restore on focus. Use with caption.
+Hide and restore on focus. Use with caution.
 
 File: `trimurl.uc.js`
 <br></br>
