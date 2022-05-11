@@ -13,7 +13,7 @@
 }
 
 #SM_splitter {
-    border-left-color: rgba(0, 0, 0, 0)!important;
+    border-color: rgba(0, 0, 0, 0)!important;
     background-color: rgba(0, 0, 0, 0) !important;
     margin-top: 0px!important;
     z-index: 9999!important;
