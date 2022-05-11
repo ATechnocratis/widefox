@@ -130,6 +130,11 @@
             outline:none !important;
             background:none!important;
         }
+        
+       treechildren::-moz-tree-separator {
+            border-top: 1px solid rgb(60,60,60)!important;
+            border-bottom: 1px solid rgb(120,120,120)!important;
+        }  
     }
 }
 /*History sidebar*/
