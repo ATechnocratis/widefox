@@ -178,7 +178,8 @@ Tested with the loader from xiaoxiaoflood. Follow the instructions to install th
  
 + Copy the contents of the chrome folder from this repository to the chrome folder you created inside your profile folder in step 4.
 + Restart!
- 
++ If there is a thin line at the top of the window in maximized mode or a part of the window disapears, increase/decrease the value of the variable `--titlebar-hide` in the file `userChrome-files/vars.css`
+
 #### 6. Customize  Toolbar
  
 
