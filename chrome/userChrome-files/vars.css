@@ -1,9 +1,9 @@
 :root{
 	
-	--titlebar-hide:19px!important;
+	--titlebar-hide:30px!important;
 	--sideheader-margin:37px!important;
 	--sidebar-padding:-38px;
-  --tst-roots-gap:3px!important;
+  	--tst-roots-gap:3px!important;
 	--tst-border-rad:6px!important;
 	--tst-height:34px!important;
 	--tst-default-color:rgba(1, 41, 41, 1)!important;
@@ -32,8 +32,7 @@
 	
 }
 :root:not([customizing])[uidensity="touch"] {
-	--top-toolbar-height:-38px!important;
-	--titlebar-hide:20px!important;
+	--top-toolbar-height:-39px!important;
   --sidebar-padding:-49px;
 
 }
