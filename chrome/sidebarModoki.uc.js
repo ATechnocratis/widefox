@@ -202,7 +202,10 @@ var SidebarModoki = {
          /*list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVQ4jWP4TyFg+P///38GBgayMHUNwEdjdTrVDcDnTKJdgEsRSV5ACaBRF9DZBQObFygBAMeIxVdCQIJTAAAAAElFTkSuQmCC');*/
           list-style-image:url("chrome://userchromejs/content/sidebarModoki/opened.svg"); 
       }
-      
+      tabpanels,
+      tab {
+        color-scheme: dark !important;
+       }
      `;
 
     style = style.replace(/\s+/g, " ").replace(/\{SM_WIDTH\}/g, this.SM_WIDTH).replace(/\{MARGINHACK\}/g, MARGINHACK);
