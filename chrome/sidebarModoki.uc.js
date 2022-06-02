@@ -169,23 +169,29 @@ var SidebarModoki = {
       {
         visibility:collapse;
       }
+      #SM_tabs{
+        color-scheme: normal !important;
+      }
       #SM_tabpanels
       {
         appearance: none !important;
         padding: 0;
        /*margin: {MARGINHACK};*//* hack*/
         appearance: unset;
+        color-scheme: normal !important;
       }
       #SM_tabs tab {
       appearance: none !important;
+      color-scheme: normal !important;
       }
       #SM_tabpanels:not(.titlebar-color) {
           background-color: var(--toolbar-bgcolor);
           color: var(--toolbar-color);
       }
+      
       tab:focus-visible > .tab-middle {
       outline: none!important;
-    }
+      }
       #SM_closeButton:hover{
         opacity:0;
       }
@@ -202,10 +208,7 @@ var SidebarModoki = {
          /*list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVQ4jWP4TyFg+P///38GBgayMHUNwEdjdTrVDcDnTKJdgEsRSV5ACaBRF9DZBQObFygBAMeIxVdCQIJTAAAAAElFTkSuQmCC');*/
           list-style-image:url("chrome://userchromejs/content/sidebarModoki/opened.svg"); 
       }
-      tabpanels,
-      tab {
-        color-scheme: dark !important;
-       }
+      
      `;
 
     style = style.replace(/\s+/g, " ").replace(/\{SM_WIDTH\}/g, this.SM_WIDTH).replace(/\{MARGINHACK\}/g, MARGINHACK);
