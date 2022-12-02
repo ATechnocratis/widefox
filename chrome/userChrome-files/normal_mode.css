@@ -1,27 +1,29 @@
 :root {
-  /*tree style tab sidebar width*/
-    --thin-tab-width: 15px!important;
-  /*hovered width*/
+    /*tree style tab sidebar width*/
+    --thin-tab-width: 60px!important;
+    /*hovered width*/
     --wide-tab-width: 300px!important;
 }
-
 /* hide title bar and its elements */
 
-:root[sizemode="normal"] #titlebar-secondary-buttonbox, :root[sizemode="normal"] #titlebar .titlebar-spacer, :root[sizemode="normal"] #toolbar-menubar, :root[sizemode="normal"] #tabbrowser-tabs {
+:root[sizemode="normal"] #titlebar-secondary-buttonbox, :root[sizemode="normal"] #titlebar .titlebar-spacer, :root[sizemode="normal"] #toolbar-menubar, :root[sizemode="normal"] #tabbrowser-tabs, :root[sizemode="normal"] #TabsToolbar .toolbar-items {
     display: none!important;
+}
+:root[tabsintitlebar][sizemode="normal"] #titlebar {
+    appearance: none!important;
 }
 :root[sizemode="normal"] #nav-bar {
     z-index: 1!important;
 }
+:root[sizemode="normal"]  #navigator-toolbox #toolbar-menubar {
+    -moz-box-ordinal-group: 1 !important;
+}
+:root[sizemode="normal"]  #titlebar {
+    -moz-box-ordinal-group: 2 !important;
+}
 :root[sizemode="normal"] .titlebar-buttonbox-container {
     z-index: 2!important;
     position: absolute!important;
-}
-:root[sizemode="normal"] #nav-bar-overflow-button {
-    margin-right: 200px!important;
-}
-:root[sizemode="normal"] #urlbar-container {
-    position: relative!important;
 }
 :root[sizemode="normal"] toolbarspring {
     display: none!important;
@@ -29,39 +31,13 @@
 :root[sizemode="normal"] #urlbar:not([focused="true"]) #urlbar-input {
     text-align: center!important;
 }
-:root[sizemode="normal"] toolbarspring {
-    max-width: unset!important;
-    min-width: 30%!important;
-    display: flex!important;
-    position: relative!important;
+:root[sizemode="normal"] #titlebar {
+    max-height: 0px!important;
 }
 /* hide sidebar header */
 
 :root[sizemode="normal"] #sidebar-header {
     display: none!important;
-}
-/* merge tabs bar with window controls into address bar */
-
-:root[sizemode="normal"] #TabsToolbar {
-    margin-bottom: -44px !important;
-}
-/* push nav bar down to compensate for missing titlebar */
-
-:root[sizemode="normal"] #nav-bar {
-    margin-top: 12px!important;
-}
-/* move nav panel in slightly to prevent covering window controls */
-
-:root[sizemode="normal"] #nav-bar-customization-target {
-    padding-left: 68px!important;
-}
-/* center window control buttons on nav bar */
-
-:root[sizemode="normal"] .titlebar-buttonbox-container .titlebar-buttonbox {
-    margin-top: 2px !important;
-}
-:root[sizemode="normal"] #titlebar {
-    appearance: none!important;
 }
 /* align nav bar buttons vertically with window control buttons */
 
@@ -76,11 +52,18 @@
 :root[sizemode="normal"] {
     --uc-vertical-toolbar-width: 35px!important;
 }
+/* Move Hamburger to left */
 
+#PanelUI-button, #customization-panel-container, #customization-panelWrapper .panel-arrow {
+    -moz-box-ordinal-group: 0 !important;
+    margin-right: -6px !important;
+}
+#main-window[sizemode="normal"] #appMenu-popup {
+    margin-right: -260px!important;
+}
 /*Vertical auto hidden personal toolbar show on hover*/
 
 :root[sizemode="normal"] #PersonalToolbar {
-    
     display: flex!important;
     flex-direction: column!important;
     position: absolute!important;
@@ -93,18 +76,15 @@
     transition: all 0ms ease!important;
     overflow: scroll!important;
     scrollbar-width: none!important;
-    width:35px;
-
+    width: 35px;
 }
 :root:not([customizing])[sizemode="normal"] #PersonalToolbar:not(:hover) {
     width: 4px!important;
     min-width: 4px!important;
     opacity: 0!important;
-
 }
 :root[customizing][sizemode="normal"] #customization-container {
     margin-left: 100px!important;
-
 }
 :root[sizemode="normal"] #PersonalToolbar:hover {
     padding: 3px!important;
@@ -112,22 +92,22 @@
     opacity: 1!important;
     transition: opacity 800ms ease!important;
 }
-  :root[customizing] #PersonalToolbar {
+:root[customizing] #PersonalToolbar {
     padding: 3px!important;
     width: var(--uc-vertical-toolbar-width)!important;
     opacity: 1!important;
     transition: opacity 800ms ease!important;
 }
-#main-window[sizemode="normal"] #personal-toolbar-empty{
-    display:none!important;
+#main-window[sizemode="normal"] #personal-toolbar-empty {
+    display: none!important;
 }
 :root[sizemode="normal"] #personal-bookmarks {
     overflow-y: auto!important;
     scrollbar-width: none!important;
 }
-:root[sizemode="normal"] #PersonalToolbar>#personal-bookmarks>#PlacesToolbar>hbox {
+/* :root[sizemode="normal"] #PersonalToolbar>#personal-bookmarks>#PlacesToolbar>hbox {
     -moz-box-orient: vertical !important;
-}
+} */
 :root[sizemode="normal"] #PersonalToolbar #PlacesToolbarItems {
     display: flex!important;
     flex-direction: column!important;
@@ -144,32 +124,17 @@
     transform: rotate(90deg)!important;
     margin-bottom: 110px;
     margin-top: -10px;
-    
 }
- :root[customizing][sizemode="normal"]
-      #zoom-controls {
-        margin-top: 50px;
-        margin-left:-45px!important;
-        margin-bottom: 50px!important;
-}  
+:root[customizing][sizemode="normal"] #zoom-controls {
+    margin-top: 50px;
+    margin-left: -45px!important;
+    margin-bottom: 50px!important;
+}
 :root[sizemode="normal"] #zoom-controls[cui-areatype="toolbar"]>#zoom-reset-button>.toolbarbutton-text {
     transform: rotate(180deg)!important;
     font-size: 15px!important;
     font-family: serif!important;
 }
-
-/* Move Hamburger to left */
-
-#PanelUI-button, #customization-panel-container, #customization-panelWrapper .panel-arrow {
-    -moz-box-ordinal-group: 0 !important;
-    margin-right: -6px !important;
-}
-#main-window[sizemode="normal"] #appMenu-popup {
-    margin-right: -260px!important;
-}
-
-
-
 /* Sidebar min and max width removal */
 
 :root[sizemode="normal"] #sidebar {
@@ -181,29 +146,20 @@
 :root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]+#sidebar-splitter {
     display: none !important;
 }
-
-
 /* Hide sidebar header, when using Tree Style Tab. */
 
 :root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
     visibility: collapse!important;
     display: none!important;
 }
-:root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]  #sidebar {
-        margin-top: calc( (-1) *( var(--sideheader-margin) + var(--tst-roots-gap)  ) ) !important;
+:root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar {
+    margin-top: calc( (-1) *( var(--sideheader-margin) + var(--tst-roots-gap))) !important;
 }
-
 /* Shrink sidebar until hovered, when using Tree Style Tab. */
 
 :root[sizemode="normal"] #sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
     min-width: var(--wide-tab-width) !important;
     max-width: none !important;
-}
-:root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
-    position: relative !important;
-    /*transition: all 100ms !important;*/
-    min-width: var(--thin-tab-width) !important;
-    max-width: var(--thin-tab-width) !important;
 }
 :root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
     position: relative !important;
@@ -216,23 +172,28 @@
 }
 :root[sizemode="normal"] #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
     transition: all 200ms !important;
-    /*     margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important; */
-    margin-left: calc( 0px + var(--thin-tab-width) - var(--wide-tab-width))!important;
+    margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
     min-width: var(--wide-tab-width) !important;
     z-index: 0!important;
+    position: absolute
 }
-
-
 /* Titlebar min-max-close buttons  replace*/
-
-
+:root[sizemode="normal"]  #nav-bar {
+    padding-right: 120px;
+}
+:root[sizemode="normal"]  #TabsToolbar .titlebar-buttonbox-container {
+    display: block !important;
+    position: absolute !important;
+    top: 2px;
+    right: 0;
+}
 .titlebar-min {
     mask: url(./icons/arrowDown.svg) no-repeat!important;
 }
 .titlebar-restore, .titlebar-max {
     mask: url(./icons/arrowUp.svg) no-repeat!important;
 }
-.titlebar-close {
+:root[sizemode="normal"]  .titlebar-close {
     margin-left: 18px!important;
     margin-right: 8px!important;
     list-style-image: none!important;
@@ -245,7 +206,7 @@
     max-height: 18px!important;
     min-width: 18px!important;
 }
-.titlebar-restore, .titlebar-max, .titlebar-min {
+:root[sizemode="normal"]  .titlebar-restore,:root[sizemode="normal"]  .titlebar-max,:root[sizemode="normal"]  .titlebar-min {
     margin-left: 20px!important;
     list-style-image: none!important;
     background-color: var(--toolbarbutton-icon-fill)!important;

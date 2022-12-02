@@ -1,150 +1,122 @@
-
-:root{
-    --sm-tab-width:70px!important;
+:root {
+    --sm-tab-width: 70px;
 }
 
-#SM_toolbox{
+#SM_toolbox {
     opacity: 1!important;
-    background-color: var(--toolbar-bgcolor, --toolbar-non-lwt-bgcolor)!important;
+    background-color: var(--toolbar-bgcolor, --toolbar-non-lwt-bgcolor);
     margin-right: -6px!important;
-    position: absolute!important;
     z-index: 1!important;
     margin-top: -1px!important;
 }
-
+/*Splitter -resizer style*/
 #SM_splitter {
-    border-color: rgba(0, 0, 0, 0)!important;
     background-color: rgba(0, 0, 0, 0) !important;
-    margin-top: 0px!important;
-    z-index: 9999!important;
+    margin-top: 0px;
+    z-index: 9999;
     position: absolute!important;
     margin-top: -40px!important;
-
-}
-#main-window[sizemode="maximized"] #SM_splitter {
-       margin-top: var(--top-toolbar-height)!important;
-}
-#main-window[sizemode="normal"] #SM_splitter {
-       opacity:0!important;
+    border-color: transparent!important;
 }
 #SM_tabs {
-    border-bottom-width: 0px!important;
-    border-color: var(--arrowpanel-border-color)!important;
-    border-bottom-style: solid!important;
-    border-width:1px!important;
-
-}
-
-#SM_tab0[selected="true"] {
-    border-color: var(--arrowpanel-border-color)!important;
-    border-radius: 3px!important;
-    border-top-left-radius: 6px!important;
-    border-top-right-radius: 6px!important;
-    border-width: 1px!important;
-    border-bottom-color: var(--toolbar-bgcolor)!important;
-    margin-bottom: -1px!important;
-    opacity: 1!important;
-    border-style: solid!important;
-    appearance: unset!important;
-    color: var(--sidebar-text-color)!important;
-
-    
-}
-#SM_tab0 {
-    border: none!important;
-    opacity: 0.4!important;
-    appearance: unset!important;
-    color: var(--lwt-toolbar-field-focus-color)!important;
-    width:var(--sm-tab-width)!important;
-    text-align:center!important;
-}
-#SM_tab1[selected="true"] {
-    border-color: var(--arrowpanel-border-color)!important;
-    border-radius: 3px!important;
-    border-top-left-radius: 6px!important;
-    border-top-right-radius: 6px!important;
-    border-width: 1px!important;
-    border-bottom-color: var(--toolbar-bgcolor)!important;
-    margin-bottom: -1px!important;
-    opacity: 1!important;
-    border-style: solid!important;
-    appearance: unset!important;
-    color: var(--sidebar-text-color)!important;
-}
-#SM_tab1 {
-    border: none!important;
-    opacity: 0.4!important;
-    appearance: unset!important;
-    color: var(--lwt-toolbar-field-focus-color)!important;
-    width:var(--sm-tab-width)!important;
-    text-align:center!important;
-}
-#SM_tab2[selected="true"] {
-    border-color: var(--arrowpanel-border-color)!important;
-    border-radius: 3px!important;
-    border-top-left-radius: 6px!important;
-    border-top-right-radius: 6px!important;
-    border-width: 1px!important;
-    border-bottom-color: var(--toolbar-bgcolor)!important;
-    margin-bottom: -1px!important;
-    opacity: 1!important;
-    border-style: solid!important;
-    appearance: unset!important;
-    color: var(--sidebar-text-color)!important;
-
-}
-#SM_tab2 {
-    border: none!important;
-    opacity: 0.4!important;
-    appearance: unset!important;
-    color: var(--lwt-toolbar-field-focus-color)!important;
-    width:var(--sm-tab-width)!important;
-    text-align:center!important;
-}
-#SM_tab3[selected="true"] {
-    border-color:var(--arrowpanel-border-color)!important;
-    border-top-width: 1px!important;
-    border-radius: 3px!important;
-    border-top-left-radius: 6px!important;
-    border-top-right-radius: 6px!important;
-    border-left-width: 1px!important;
-    border-right-width: 1px!important;
-    border-bottom-width: 1px!important;
-    border-bottom-color: var(--lwt-accent-color)!important;
-    margin-bottom: -1px!important;
-    opacity: 1!important;
-    border-style: solid!important;
-    appearance: unset!important;
-    color: var(--sidebar-text-color)!important;
-}
-#SM_tab3 {
-    border: none!important;
-    opacity: 0.4!important;
-    appearance: unset!important;
-    color: var(--lwt-toolbar-field-focus-color)!important;
+    border-color: var(--arrowpanel-border-color);
+    border-bottom-style: solid;
+    border-width: 1px;
 }
 
 /*GRAB theme background image*/
 #SM_tabpanels {
-    background: var(--toolbar-bgimage)!important;
-    background: var(--browser-bg-url)!important;
-    background: var(--lwt-header-image)!important;
-    background: var(--lwt-additional-images)!important;
-    background-color: var(--lwt-sidebar-background-color)!important;
+    background: var(--toolbar-bgimage);
+    background: var(--browser-bg-url);
+    background: var(--lwt-header-image);
+    background: var(--lwt-additional-images);
+    background-color: var(--lwt-sidebar-background-color);
     background-color: var(--lwt-accent-color)!important;
-    appearance: unset!important;
-    background-size: cover!important;
-    
+    appearance: unset;
+    background-size: cover;
 }
-
-
-
 #SM_Button:-moz-lwtheme-brighttext {
     background: transparent!important;
 }
-#S_Button[checked="true"] {
-
-    background: !important;
-    list-style-image: url(./icons/sideopen.svg)!important;
+/*Firefox forced light colors fix*/
+tabpanels {
+    color-scheme: unset!important;
 }
+tab {
+    color-scheme: unset!important;
+}
+ 
+ /*ADD ICONS instead of text on tabs*/
+ .SM_tab {
+    -moz-context-properties: fill!important;
+    font-size: 0px!important;
+    width: 42px!important;
+    filter: saturate(0.6)!important;
+    opacity: 0.7!important;
+    margin-top: -12px!important;
+    padding-bottom: 6px!important;
+    padding-top: 6px!important;
+}
+.SM_tab[selected="true"] {
+    opacity: 1!important;
+    filter: saturate(1)!important;
+    padding: 1px 4px 2px!important;
 
+}
+#SM_tab0 {
+    list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg")!important;
+    fill: red!important;
+}
+.SM_tab>hbox>image {
+    margin-left: 6px!important;
+    min-width: 18px!important;
+}
+#nav_button_container {
+    width: 40px!important;
+}
+#SM_tab0 {
+    list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg")!important;
+    fill: rgb(180, 180, 50)!important;
+}
+#SM_tab1 {
+    list-style-image: url("chrome://browser/skin/downloads/downloads.svg")!important;
+    fill: rgb(255, 170, 170)!important;
+    opacity: 0!important;
+}
+#SM_tab1[selected="true"] {
+    opacity: 0!important;
+}
+#SM_tabs #downloads-button {
+    fill: rgb(170, 40, 40)!important;
+    pointer-events: none!important;
+    transform: scale(1.1)!important;
+}
+#SM_tabbox[selectedIndex="1"] #SM_tabs #downloads-button {
+    opacity: 1!important;
+    fill: rgb(220, 60, 60)!important;
+}
+#SM_tab2 {
+    list-style-image: url("chrome://browser/skin/history.svg");
+    fill: rgb(120, 150, 160)!important;
+}
+#SM_tab3 {
+    list-style-image: url("chrome://mozapps/skin/extensions/extension.svg");
+    fill: rgb(180, 50, 230)!important;
+}
+#SV_tab0 {
+    list-style-image: url("chrome://browser/skin/window.svg");
+    fill: rgb(100, 100, 200)!important;
+}
+#SM_tab4 {
+    list-style-image: url("chrome://global/skin/icons/settings.svg");
+    fill: rgb(190, 90, 40)!important;
+}
+#SM_tab5 {
+    list-style-image: url("chrome://global/skin/icons/info.svg");
+    fill: rgb(30, 160, 200)!important;
+}
+#SM_tabs #downloads-button {
+    --download-progress-pcent: 0%;
+    margin-left: -201px!important;
+    margin-top: -10px!important;
+}

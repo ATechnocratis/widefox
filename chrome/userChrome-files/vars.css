@@ -1,57 +1,41 @@
-:root{
-	
-	--titlebar-hide:30px!important;
-	--sideheader-margin:37px!important;
-	--sidebar-padding:-38px;
-  	--tst-roots-gap:3px!important;
-	--tst-border-rad:6px!important;
-	--tst-height:34px!important;
-	--tst-default-color:rgba(1, 41, 41, 1)!important;
-	--tst-font-size:13px!important;
-	
-
-	--urlbar-foucs-width: 630px!important;
-	--urlbar_font_size: 15px!important;
+:root {
+    --titlebar-hide: 30px!important;
+    --sideheader-margin: 37px!important;
+    --sidebar-padding: -38px;
+    --tst-roots-gap: 3px!important;
+    --tst-border-rad: 6px!important;
+    --tst-height: 34px!important;
+    --tst-default-color: rgba(1, 41, 41, 1)!important;
+    --tst-font-size: 13px!important;
+    --urlbar-foucs-width: 630px!important;
+    --urlbar_font_size: 15px!important;
 }
-
-
-
-:root:not([customizing])[sizemode="normal"]  {
-	--navbar-transition-delay: 0.1s!important;
-	--navbar-transition-duartion: 135ms!important;
+:root:not([customizing])[sizemode="normal"] {
+    --navbar-transition-delay: 0.1s!important;
+    --navbar-transition-duartion: 135ms!important;
 }
-
 :root:not([customizing])[uidensity="compact"] {
-	--top-toolbar-height:-33px!important;
+    --top-toolbar-height: -33px!important;
 }
-
 :root:not([customizing]):not([uidensity]) {
-	
-	--top-toolbar-height:-37px!important;
-	
-	
+    --top-toolbar-height: -37px!important;
 }
 :root:not([customizing])[uidensity="touch"] {
-	--top-toolbar-height:-39px!important;
-  --sidebar-padding:-49px;
-
+    --top-toolbar-height: -39px!important;
+    --sidebar-padding: -49px;
 }
-
 :root:not([customizing])[sizemode="normal"][uidensity="compact"] {
-		
-	--nav-bar-margin: -47px!important;
-	--bookmark-bar-margin: -22px!important;
-	
+    --nav-bar-margin: -47px!important;
+    --bookmark-bar-margin: -22px!important;
 }
-
 :root:not([customizing])[sizemode="normal"]:not([uidensity]) {
-	--nav-bar-margin: -41px!important;
-	--bookmark-bar-margin: -28px!important;
+    --nav-bar-margin: -41px!important;
+    --bookmark-bar-margin: -28px!important;
 }
-
 :root:not([customizing])[sizemode="normal"][uidensity=touch] {
-	--nav-bar-margin: -41px!important;
-	--bookmark-bar-margin: -34px!important;
+    --nav-bar-margin: -41px!important;
+    --bookmark-bar-margin: -34px!important;
 }
-
-#urlbar-container {--urlbar-container-height: 30px !important;}
+#urlbar-container {
+    --urlbar-container-height: 30px !important;
+}

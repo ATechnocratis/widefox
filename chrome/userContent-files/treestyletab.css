@@ -19,11 +19,6 @@
     .have-pinned-tabs {
         --visual-gap-offset: 15px!important;
     }
-    /*Margin hack to be used together with sidebar_header_tweaks.css*/
-    #tabbar-container {
-        margin-top: calc( var(--sideheader-margin))!important;
-    }
-
 
     /* Tab style */
     tab-item tab-item-substance {

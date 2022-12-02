@@ -69,7 +69,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         display: block !important;
         padding: 10px !important;
     }
-    /*recolour background*/
+    /*recolor background*/
     .sticky-container {
         background: var(--in-content-box-background-op)  !important;
         backdrop-filter: blur(11px) !important;
@@ -116,7 +116,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         max-width: 50vw!important;
     }
     .card { 
-        -moz-padding-start: 0px  !important;
+        -moz-padding-start: 10px  !important; 
         margin: 3px !important;
         /*only for light mode change bacrkound*/
         background: rgba(182, 166, 176, 0.3) !important;
@@ -145,7 +145,31 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     }
     .card-heading-icon {
         padding: 10px !important;
+        padding-left: 0px !important;
+
     }
+
+    /*Make the toggle button bigger */
+    
+    input[type="checkbox"].toggle-button{
+        width: 37px!important;
+        height: 19px!important;
+        border:1px solid rgb(30,120,130)!important;
+    }
+    input[type="checkbox"].toggle-button:checked::before {
+        transform: translate(18px, calc(50% - var(--dot-size) / 2))!important;
+    }
+    input[type="checkbox"].toggle-button::before {
+        width: 13px!important;
+        height: 13px!important;
+        margin-top:0px!important;
+        background-color: rgb(70,220,200)!important;
+    }
+    input[type="checkbox"].toggle-button:checked:hover {
+        border-color: rgb( 50,50,50)!important;
+        background-color: rgb(100,80,90)!important;
+    }
+    
     /*hide badge*/
     .addon-badge {
         display: none !important;
@@ -154,6 +178,7 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
         min-height: 40px  !important;
         min-width: 0px  !important;
     }
+
     /*More options button shrink and recolour*/
     addon-card:not([expanded="true"]) .addon.card .more-options-button {
         margin-left: 9px !important;
@@ -170,15 +195,13 @@ url-prefix(chrome://mozapps/content/extensions/aboutaddons.xhtml) {
     recommended-themes-section, recommended-extensions-section {
         display: none  !important;
     }
-    .category[is="discover-button"]{
-        display: none!important;
-    }
-    /*Dark mode colours adjustments*/
+     
+    /*Dark mode color adjustments*/
     @media (prefers-color-scheme: dark) {
         :root {
             --in-content-page-background: rgba(0, 1, 1, 0) !important;
         }
-        #sidebar {
+         #sidebar {
             background-color:rgba(52, 66, 76, 0.3)!important;
         }
         .card {

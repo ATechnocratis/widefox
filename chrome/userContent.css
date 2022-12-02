@@ -9,11 +9,26 @@
 
 
 /*--- Tree Style Tab tweaks and styling ---*/
+
+
+/*EXTRA FOLLOW STEPS*/
 @import "./userContent-files/treestyletab.css";
 
 /*Adds to Tree Style Tab selected tab an animated gradient border*/
 
 @import "./userContent-files/treetab_animated_gradient_border.css";
+
+/*Required*/
+:root {
+    --sideheader-margin: 37px;
+    --tab-top-margin: 10px!important;
+}
+tab-item:not(collapsed,.pinned)[data-level="0"] {
+        margin-top: var(--tab-top-margin) !important;
+}
+#tabbar-container {
+    margin-top: calc(var(--sideheader-margin))!important;
+}
 
 
 /*Text Selection / highlight colour*/

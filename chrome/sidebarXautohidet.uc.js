@@ -14,8 +14,6 @@
         if (window.windowState === 1 && prvState != window.windowState) {
             SidebarModoki.toggle(true);
             prvState = window.windowState;
-            console.log("screen is big now");
-
             //UNCOMMENT TO HIDE BOTH SIDEBARS
             // if((sidebar.src === "about:blank")||(!sidebar.hasAttribute("src")))
             // 		SidebarUI.show(sidebarbox.getAttribute("sidebarcommand"));
@@ -29,10 +27,8 @@
             //     sidebar.hidden = false;
             // 	}
         } else if (prvState != window.windowState) {
-            console.log("RESSSSSIZES");
             prvState = window.windowState;
             SidebarModoki.close();
-
             //UNCOMMENT TO HIDE BOTH SIDEBARS
             // if (sidebarbox.hidden != "true" && shortccut === 0) {
             //     sidebarbox.hidden = "true";

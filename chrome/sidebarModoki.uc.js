@@ -7,47 +7,45 @@
 // ==/UserScript==
 
 
-
+var appcontent = document.getElementById("appcontent");
 var navbarX = document.getElementById("nav-bar");
+var mainWindow  = document.getElementById("main-window");
+
+var sheetX = document.createElement('style');
+document.body.appendChild(sheetX);
+
+sheetX.innerHTML ='  #main-window[sizemode="maximized"] #nav-bar {max-width:300px!important;}';
 
 
 
 //Resize navbar together with resized sidebar 
 function resizeUrlbar() {
-  //Get sidebar width
+    //Get sidebar width
         //35 is the width of vertical bookmark toolbar
-        var sidebarWidthPlus = parseInt(document.getElementById("SM_toolbox").width) + 35; 
-        this.Button = document.getElementById("SM_Button");
- //If sidebar is show  resize navbar and window maximized
-        if (this.Button.hasAttribute("checked") && window.windowState === 1 ){
-            navbarX.setAttribute("style", "max-width:" +sidebarWidthPlus  + "px!important;");
-        }
-  //else restore full width
-        else{
-            navbarX.setAttribute("style", "max-width:100%!important;");
-        }
+  var sidebarWidthPlus = parseInt(getComputedStyle(document.getElementById("SM_toolbox")).width) + 35; 
+  sheetX.innerHTML ='  #main-window[sizemode="maximized"] #nav-bar {max-width:' + sidebarWidthPlus + 'px!important;}';
 }
-
 
 var SidebarModoki = {
   // -- config --
   SM_RIGHT: false,  // SidebarModoki position
-  SM_WIDTH : 130,
+  SM_WIDTH : 300,
   SM_AUTOHIDE : true,  //F11 Fullscreen
-  TAB0_DEFAULT_WIDTH : 300,
-  TAB1_DEFAULT_WIDTH : 300,
-  TAB2_DEFAULT_WIDTH : 540,
+  TAB_SMALL_DEFAULT_WIDTH : 300,
+  TAB_BIG_DEFAULT_WIDTH : 420,
+
+  //chrome://browser/content/places/places.xhtml
   TAB0_SRC   : "chrome://browser/content/places/bookmarksSidebar.xhtml",
   TAB0_LABEL : "Bookmarks",
   TAB1_SRC   : "chrome://browser/content/downloads/contentAreaDownloadsView.xhtml?SM",
   TAB1_LABEL : "Downloads",
-  TAB2_SRC   : "chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml",
-  TAB2_LABEL : "Config",
+  TAB2_SRC   : "chrome://browser/content/places/historySidebar.xhtml",
+  TAB2_LABEL : "History",
   TAB3_SRC   : "about:addons",
   TAB3_LABEL : "Addons",
-  TAB4_SRC   : "chrome://browser/content/places/historySidebar.xhtml",
-  TAB4_LABEL : "History",
-  TAB5_SRC   : "about:performance",
+  TAB4_SRC   : "chrome://userchromejs/content/aboutconfig/aboutconfig.xhtml",
+  TAB4_LABEL : "Config",
+  TAB5_SRC   : "about:processes",
   TAB5_LABEL : "Tasks",
   // -- config --
 
@@ -142,7 +140,6 @@ var SidebarModoki = {
         text-shadow: none;
       }
       #SM_toolbox:not(.titlebar-color) {
-          width: 130px;
           min-width: 0;
           background-color: var(--toolbar-bgcolor);
           color: var(--toolbar-color);
@@ -169,29 +166,24 @@ var SidebarModoki = {
       {
         visibility:collapse;
       }
-      #SM_tabs{
-        color-scheme: normal !important;
-      }
       #SM_tabpanels
       {
         appearance: none !important;
         padding: 0;
        /*margin: {MARGINHACK};*//* hack*/
         appearance: unset;
-        color-scheme: normal !important;
       }
+
       #SM_tabs tab {
       appearance: none !important;
-      color-scheme: normal !important;
       }
       #SM_tabpanels:not(.titlebar-color) {
           background-color: var(--toolbar-bgcolor);
           color: var(--toolbar-color);
       }
-      
       tab:focus-visible > .tab-middle {
       outline: none!important;
-      }
+    }
       #SM_closeButton:hover{
         opacity:0;
       }
@@ -208,7 +200,49 @@ var SidebarModoki = {
          /*list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVQ4jWP4TyFg+P///38GBgayMHUNwEdjdTrVDcDnTKJdgEsRSV5ACaBRF9DZBQObFygBAMeIxVdCQIJTAAAAAElFTkSuQmCC');*/
           list-style-image:url("chrome://userchromejs/content/sidebarModoki/opened.svg"); 
       }
-      
+
+      /*Sidebar panel windows controls and indicator*/
+      #nav_button_container {
+          position:fixed;
+          display:inline-flex;
+          z-index:9999;
+          width: 70px;
+          margin-left: -140px;
+          transition: 0.3s ease-in;
+          transition-property: width, height, opacity, margin;
+          transform-origin: center;
+          height: 3px;
+          padding: 1px;
+          opacity: 0.9;
+          margin-top: 17px;
+          border: 2px solid var(--arrowpanel-border-color);
+          border-top-color: var(--toolbar-bgcolor);
+          border-bottom-right-radius: 15px;
+          border-bottom-left-radius: 15px;
+          transition: all 0.15s ease-in-out;
+      }
+      .nav_button {
+          opacity: 0;
+      }
+      #SM_tabbox[selectedIndex="0"] #SM_tabs>#nav_button_container {
+          margin-left: 0px!important;
+      }
+      #SM_tabbox[selectedIndex="1"] #SM_tabs>#nav_button_container {
+          margin-left: calc( 1*42px);
+      }
+      #SM_tabbox[selectedIndex="2"] #SM_tabs>#nav_button_container {
+          margin-left: calc( 2*42px);
+      }
+      #SM_tabbox[selectedIndex="3"] #SM_tabs>#nav_button_container {
+          margin-left: calc( 3*42px);
+      }
+      #SM_tabbox[selectedIndex="4"] #SM_tabs>#nav_button_container {
+          margin-left: calc( 4*42px);
+      }
+      #SM_tabbox[selectedIndex="5"] #SM_tabs>#nav_button_container {
+          margin-left: calc( 5*42px);
+      }
+
      `;
 
     style = style.replace(/\s+/g, " ").replace(/\{SM_WIDTH\}/g, this.SM_WIDTH).replace(/\{MARGINHACK\}/g, MARGINHACK);
@@ -221,7 +255,8 @@ var SidebarModoki = {
       return document.documentElement.getAttribute(name);
     };
 
-    Components.utils.import("resource:///modules/CustomizableUI.jsm");
+   
+    ChromeUtils.import("resource:///modules/CustomizableUI.jsm");
     // xxxx try-catch may need for 2nd window
     try {
       CustomizableUI.createWidget({ //must run createWidget before windowListener.register because the register function needs the button added first
@@ -254,15 +289,29 @@ var SidebarModoki = {
 
     template = ["key", {id: "key_SidebarModoki", key: "B", modifiers: "accel,alt", command: "cmd_SidebarModoki",}];
     document.getElementById("mainKeyset").appendChild(this.jsonToDOM(template, document, {}));
-//to do xxx ordinal=xx shoud be replaced with style="-moz-box-ordinal-group: xx;"
     template =
-      ["vbox", {id: "SM_toolbox", style: this.SM_RIGHT ? "-moz-box-ordinal-group:10" : "-moz-box-ordinal-group:0"},
-      ["toolbarbutton", {id: "SM_closeButton", class: "tabbable",switcher: "1", tooltiptext: "Switch", oncommand: "SidebarModoki.switch();"}],
+      ["vbox", {id: "SM_toolbox", class: "chromeclass-extrachrome", customizable:"true", style: this.SM_RIGHT ? "-moz-box-ordinal-group:10" : "-moz-box-ordinal-group:0"},
+      ["toolbarbutton", {id: "SM_closeButton", class: "tabbable", tooltiptext: "Switch"}],
         ["tabbox", {id:"SM_tabbox", flex: "1", handleCtrlPageUpDown: false, handleCtrlTab: false},
-          ["tabs", {id: "SM_tabs"},
+          ["tabs", {id: "SM_tabs" , index: this.selectedIndex},
             ["tab", {id: "SM_tab0", label: this.TAB0_LABEL, class: "SM_tab"}],
             ["tab", {id: "SM_tab1", label: this.TAB1_LABEL, class: "SM_tab"}],
-            ["tab", {id: "SM_tab2", label: this.TAB2_LABEL, class: "SM_tab"}]
+            ["tab", {id: "SM_tab2", label: this.TAB2_LABEL, class: "SM_tab"}],
+            ["tab", {id: "SM_tab3", label: this.TAB3_LABEL, class: "SM_tab"}],
+            ["tab", {id: "SM_tab4", label: this.TAB4_LABEL, class: "SM_tab"}],
+            ["tab", {id: "SM_tab5", label: this.TAB5_LABEL, class: "SM_tab"}],
+            ["hbox", {id: "nav_button_container"}],
+            ["toolbarbutton", {id:"downloads-button", class:"toolbarbutton-1 chromeclass-toolbar-additional", badged:"true", key:"key_openDownloads", onmousedown:"DownloadsIndicatorView.onCommand(event);", onkeypress:"DownloadsIndicatorView.onCommand(event);", ondrop:"DownloadsIndicatorView.onDrop(event);", ondragover:"DownloadsIndicatorView.onDragOver(event);", ondragenter:"DownloadsIndicatorView.onDragOver(event);", removable:"true", overflows:"false", tooltip:"dynamic-shortcut-tooltip", indicator:"true"} ,
+                ["box", {id:"downloads-indicator-anchor", consumeanchor:"downloads-button"},
+                  ["image", {id:"downloads-indicator-icon"}]],
+                ["box", {id:"downloads-indicator-progress-outer", class:"toolbarbutton-animatable-box"},
+                  ["box", {id:"downloads-indicator-progress-inner"}]],
+                ["box" , {id:"downloads-indicator-start-box", class:"toolbarbutton-animatable-box" },
+                  ["image", {id:"downloads-indicator-start-image" , class:"toolbarbutton-animatable-image"}]],
+                ["box", {id:"downloads-indicator-finish-box" , class:"toolbarbutton-animatable-box" },
+                  ["image", {id:"downloads-indicator-finish-image", class:"toolbarbutton-animatable-image"}]]
+              
+            ]
           ],
           ["tabpanels", {id: "SM_tabpanels", flex: "1", style: "border: none;"},
             ["tabpanel", {id: "SM_tab0-container", orient: "vertical", flex: "1"},
@@ -273,6 +322,15 @@ var SidebarModoki = {
             ],
             ["tabpanel", {id: "SM_tab2-container", orient: "vertical", flex: "1"},
               ["browser", {id: "SM_tab2-browser", flex: "1", autoscroll: "false", src: this.TAB2_SRC}]
+            ],
+            ["tabpanel", {id: "SM_tab3-container", orient: "vertical", flex: "1"},
+              ["browser", {id: "SM_tab3-browser", flex: "1", autoscroll: "false", src: this.TAB3_SRC}]
+            ],
+            ["tabpanel", {id: "SM_tab4-container", orient: "vertical", flex: "1"},
+              ["browser", {id: "SM_tab4-browser", flex: "1", autoscroll: "false", src: this.TAB4_SRC}]
+            ],
+            ["tabpanel", {id: "SM_tab5-container", orient: "vertical", flex: "1"},
+            ["browser", {id: "SM_tab5-browser", flex: "1", autoscroll: "false", src: this.TAB5_SRC}]
             ]
           ],
         ],
@@ -281,7 +339,7 @@ var SidebarModoki = {
     sidebar.parentNode.insertBefore(this.jsonToDOM(template, document, {}), sidebar);
 
     template =
-      ["splitter", {id: "SM_splitter", style: this.SM_RIGHT ? "-moz-box-ordinal-group:9" : "-moz-box-ordinal-group:0", state: "open", collapse: this.SM_RIGHT ? "after" :"before", resizebefore: "closest", resizeafter: "closest"},
+      ["splitter", {id: "SM_splitter", state: "open", collapse: this.SM_RIGHT ? "after" :"before", resizebefore:"sibling", resizeafter:"none"},
         ["grippy", {}]
       ];
     sidebar.parentNode.insertBefore(this.jsonToDOM(template, document, {}), sidebar);
@@ -335,11 +393,18 @@ var SidebarModoki = {
     let tb0 = document.getElementById("SM_tab0");
     let tb1 = document.getElementById("SM_tab1");
     let tb2 = document.getElementById("SM_tab2");
+    let tb3 = document.getElementById("SM_tab3");
+    let tb4 = document.getElementById("SM_tab4");
+    let tb5 = document.getElementById("SM_tab5");
+
     tb0.parentNode.insertBefore(tb0, tb1);
     tb0.parentNode.insertBefore(tb1, tb2);
+    tb0.parentNode.insertBefore(tb2, tb3);
+    tb0.parentNode.insertBefore(tb3, tb4);
+    tb0.parentNode.insertBefore(tb4, tb5);
+
     document.getElementById("SM_tabs").selectedIndex = index;
     let closebutton = document.getElementById("SM_closeButton");
-    closebutton.switcher = "1";
     setTimeout(function(){this.observe();}.bind(this), 0);
 
     //F11 fullscreen
@@ -367,7 +432,7 @@ var SidebarModoki = {
     window.addEventListener("MozDOMFullscreen:Exited", this,
                             /* useCapture */ true,
                             /* wantsUntrusted */ false);
-    
+
   },
 
 
@@ -383,89 +448,46 @@ var SidebarModoki = {
     document.getElementById("SM_tabs").addEventListener("focus", this, true);
     window.addEventListener("aftercustomization", this, false);
 
-    // xxxx native sidebar changes ordinal when change position of the native sidebar and open/close
-    this.SM_Observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        switch (mutation.attributeName) {
-          case "hidden":
-          case "positionend":
-            setTimeout(() => {
-              this.ToolBox.setAttribute("style", this.SM_RIGHT ? "-moz-box-ordinal-group:10" : "-moz-box-ordinal-group:0");
-              this.Splitter.setAttribute("style", this.SM_RIGHT ? "-moz-box-ordinal-group:9" : "-moz-box-ordinal-group:0");
-            }, 0);
-            break;
-        }
-      }.bind(this));
-    }.bind(this));
-    // pass in the target node, as well as the observer options
-    this.SM_Observer.observe(document.getElementById("sidebar-box"),
-                             {attribute: true, attributeFilter: ["collapsed", "hidden", "positionend"]});
   },
 
   onSelect: function(event) {
     let aIndex = document.getElementById("SM_tabpanels").selectedIndex;
     this.prefs.setIntPref(this.kSM_lastSelectedTabIndex, aIndex);
     width = this.getPref(this.kSM_lastSelectedTabWidth + aIndex, "int", this.SM_WIDTH);
-    document.getElementById("SM_toolbox").width = width;
+    document.getElementById("SM_toolbox").setAttribute("style", "width:" + width + "px");
     resizeUrlbar();
   },
   
   toggle: function(forceopen) {
     this.Button = document.getElementById("SM_Button");
-    if (!this.Button.hasAttribute("checked") || forceopen) {
-      this.Button.setAttribute("checked", true);
-      this.ToolBox.collapsed= false;
-      this.Splitter.collapsed= false;
-      let index = this.getPref(this.kSM_lastSelectedTabIndex, "int", 0);
-      document.getElementById("SM_tabs").selectedIndex = index;
-      width = this.getPref(this.kSM_lastSelectedTabWidth + index, "int", this.SM_WIDTH);
-      document.getElementById("SM_toolbox").width = width;
-      this.prefs.setBoolPref(this.kSM_Open, true)
-      addEventListener("resize", this, false);
-    } else {
-      this.close();
+    this.ToolBox = document.getElementById("SM_toolbox")
+    if(this.Button){
+      if (!this.Button.hasAttribute("checked") || forceopen) {
+        this.Button.setAttribute("checked", true);
+        this.ToolBox.collapsed = false;
+        this.Splitter.collapsed= false;
+        let index = this.getPref(this.kSM_lastSelectedTabIndex, "int", 0);
+        document.getElementById("SM_tabs").selectedIndex = index;
+        width = this.getPref(this.kSM_lastSelectedTabWidth + index, "int", this.SM_WIDTH);
+        document.getElementById("SM_toolbox").setAttribute("style", "width:" + width + "px");
+        this.prefs.setBoolPref(this.kSM_Open, true)
+        addEventListener("resize", this, false);
+      } else {
+        this.close();
+      }
     }
   },
   buttonPress: function() {
-    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 0, this.TAB0_DEFAULT_WIDTH);
-    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 1, this.TAB1_DEFAULT_WIDTH);
-    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 2, this.TAB2_DEFAULT_WIDTH);
+    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 0, this.TAB_SMALL_DEFAULT_WIDTH);
+    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 1, this.TAB_SMALL_DEFAULT_WIDTH);
+    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 3, this.TAB_SMALL_DEFAULT_WIDTH);
+    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 2, this.TAB_SMALL_DEFAULT_WIDTH);
+    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 4, this.TAB_BIG_DEFAULT_WIDTH);
+    this.prefs.setIntPref(this.kSM_lastSelectedTabWidth + 5, this.TAB_BIG_DEFAULT_WIDTH);
     this.toggle();
-  },
-switch: function() {
-  let closebutton = document.getElementById("SM_closeButton");
-            let tb0x = document.getElementById("SM_tab0");
-            let tb1x = document.getElementById("SM_tab1");
-            let tb2x = document.getElementById("SM_tab2");
-            let tb0n = document.getElementById("SM_tab0-browser");
-            let tb1n = document.getElementById("SM_tab1-browser");
-            let tb2n = document.getElementById("SM_tab2-browser");
-  if( closebutton.switcher === "1"){ 
-
-    tb0n.src = this.TAB3_SRC;
-    tb1n.src = this.TAB4_SRC;
-    tb2n.src = this.TAB5_SRC;
-    tb0x.label =  this.TAB3_LABEL;
-    tb1x.label =  this.TAB4_LABEL;
-    tb2x.label =  this.TAB5_LABEL;
-     closebutton.switcher ="2";
-
-  }
-  else{
-      tb0n.src = this.TAB0_SRC;
-      tb1n.src = this.TAB1_SRC;
-      tb2n.src = this.TAB2_SRC;
-      tb0x.label =  this.TAB0_LABEL;
-      tb1x.label =  this.TAB1_LABEL;
-      tb2x.label =  this.TAB2_LABEL;
-     closebutton.switcher ="1";
-    }
-  
   },
   close: function() {
     removeEventListener("resize", this, false);
-    this.Button = document.getElementById("SM_Button");
-    this.Button.removeAttribute("checked");
     this.ToolBox.collapsed = true;
     this.Splitter.collapsed = true;
     this.prefs.setBoolPref(this.kSM_Open, false)
@@ -527,25 +549,34 @@ switch: function() {
 
 }
 
-SidebarModoki.init();
+ // wait until components are initialized so we can access SidebarUI
+ if (gBrowserInit.delayedStartupFinished) {
+    initAll();
+    } else {
+        let delayedListener = (subject, topic) => {
+            if (topic == "browser-delayed-startup-finished" && subject == window) {
+                Services.obs.removeObserver(delayedListener, topic);
+                initAll();
+            }
+        };
+        Services.obs.addObserver(delayedListener, "browser-delayed-startup-finished");
+}
 
+function initAll(){
+    SidebarModoki.init();
+     allowAddonsPageOpen();
+     var splitter = document.getElementById("SM_splitter");
+     // splitter.addEventListener('drag', resizeUrlbar);
+     window.addEventListener('load',resizeUrlbar);
+     // window.addEventListener('resize', resizeUrlbar);
+     setTimeout(resizeUrlbar,1400);
+}
 
-//MIDDLE CLICK switch to tab and switch
-    var sidebar_tabs = document.getElementsByClassName("SM_tab");
-    for (i = 0; i < sidebar_tabs.length; i++) {
-      sidebar_tabs[i].addEventListener("click", function(e) {  
-      if (e.which == 2) {
-     this.click();
-        e.preventDefault();
-        SidebarModoki.switch();
-      } }, true);
-} 
+function  removeEMping(){
+  Services.obs.removeObserver(document.getElementById("SM_tab3-browser").contentWindow.gViewController, "EM-ping"); 
+  Services.obs.removeObserver(removeEMping, "EM-loaded");
 
-var splitter = document.getElementById("SM_splitter");
-
-splitter.addEventListener('mousemove', resizeUrlbar);
-window.addEventListener('load',resizeUrlbar);
-window.addEventListener('resize', resizeUrlbar);
-setTimeout(resizeUrlbar,400);
-
-
+}
+function allowAddonsPageOpen() {
+   Services.obs.addObserver(removeEMping, "EM-loaded");
+}
