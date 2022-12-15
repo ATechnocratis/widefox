@@ -200,7 +200,11 @@ var SidebarModoki = {
          /*list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVQ4jWP4TyFg+P///38GBgayMHUNwEdjdTrVDcDnTKJdgEsRSV5ACaBRF9DZBQObFygBAMeIxVdCQIJTAAAAAElFTkSuQmCC');*/
           list-style-image:url("chrome://userchromejs/content/sidebarModoki/opened.svg"); 
       }
-
+      #SM_Button image
+      {
+        background:none!important;
+        height:24px!important;
+      }
       /*Sidebar panel windows controls and indicator*/
       #nav_button_container {
           position:fixed;
@@ -488,6 +492,8 @@ var SidebarModoki = {
   },
   close: function() {
     removeEventListener("resize", this, false);
+    this.Button = document.getElementById("SM_Button");
+    this.Button.removeAttribute("checked");
     this.ToolBox.collapsed = true;
     this.Splitter.collapsed = true;
     this.prefs.setBoolPref(this.kSM_Open, false)

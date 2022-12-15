@@ -76,7 +76,9 @@
     transition: all 0ms ease!important;
     overflow: scroll!important;
     scrollbar-width: none!important;
-    width: 35px;
+    width: 35px!important;
+    margin-top:calc( -1 * var(--top-toolbar-height)  - 1px )!important;
+
 }
 :root:not([customizing])[sizemode="normal"] #PersonalToolbar:not(:hover) {
     width: 4px!important;
@@ -113,8 +115,11 @@
     flex-direction: column!important;
 }
 :root[sizemode="normal"] #PersonalToolbar .toolbarbutton-1 {
-    padding-block: 10px !important;
-    margin-right: 5px!important;
+    padding-block: 8px !important;
+    margin:0px!important;
+    margin-right: 0px!important;
+
+    
 }
 :root[sizemode="normal"] #PersonalToolbar #PlacesToolbarItems>.bookmark-item {
     padding-block: 4px !important;
@@ -184,8 +189,8 @@
 :root[sizemode="normal"]  #TabsToolbar .titlebar-buttonbox-container {
     display: block !important;
     position: absolute !important;
-    top: 2px;
-    right: 0;
+    top: 2px!important;
+    right: 0!important;
 }
 .titlebar-min {
     mask: url(./icons/arrowDown.svg) no-repeat!important;
@@ -215,4 +220,9 @@
     min-width: 14px!important;
     min-height: 14px!important;
     max-width: 14px!important;
+}
+:root[sizemode="normal"] 
+.titlebar-button{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
 }

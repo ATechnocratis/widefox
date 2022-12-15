@@ -24,10 +24,11 @@ See the above repository for full license text. */
     max-height: 100vh !important;
     padding-bottom: 120px !important;
     padding-top: 4px!important;
+    margin-top:calc( -1 * var(--top-toolbar-height)  - 1px )!important;
 
 }
 #main-window[sizemode="maximized"] #personal-toolbar-empty{
-    display:none
+    display:none!important;
 }
 #main-window[sizemode="maximized"] #PersonalToolbar #PlacesToolbarItems>.bookmark-item {
     padding-block: 4px !important;
@@ -54,8 +55,10 @@ See the above repository for full license text. */
 
 /*Space between items*/
 #PersonalToolbar .toolbarbutton-1 {
-    padding-block: 9px !important;
-    margin-right: 5px!important;
+    padding-block: 8px !important;
+    margin:0px!important;
+    margin-right: 0px!important;
+
 }
 
 
@@ -63,16 +66,16 @@ See the above repository for full license text. */
 #main-window[sizemode="maximized"] #zoom-controls {
     opacity: 0.9;
     transform: rotate(90deg)!important;
-    margin-bottom: 110px;
+    margin-bottom: 90px;
     margin-top: -10px;
 
 }
   
 :root[customizing][sizemode="maximized"] 
     #zoom-controls {
-        margin-top: 50px!important;
+        margin-top: 0px!important;
         margin-left:-45px!important;
-        margin-bottom: 50px!important;
+        margin-bottom: 40px!important;
 }    
 
 
@@ -81,3 +84,4 @@ See the above repository for full license text. */
     font-size: 15px!important;
     font-family: serif!important;
 }
+
