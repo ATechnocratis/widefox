@@ -30,7 +30,12 @@ tab-item:not(collapsed,.pinned)[data-level="0"] {
     margin-top: calc(var(--sideheader-margin))!important;
 }
 
-
+/*f110 remove trash can icon*/
+@-moz-document url-prefix(about:addons) {
+    panel-item[action="remove"]::part(button) {
+      background-image: none!important;
+    }
+}
 /*Text Selection / highlight colour*/
 
 @media (prefers-color-scheme: dark) {
